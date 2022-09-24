@@ -1,70 +1,159 @@
-# Getting Started with Create React App
+###Inhoudsopgave
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Naam Webapplicatie
+2. Projectopzet
+3. Mappen (documenten / applicaties)
+4. Gebruikers
 
-## Available Scripts
+###srruffino-cannoli webapplicatie
 
-In the project directory, you can run:
+Onderdeel van het project
+- [angeltr/srruffino-cannoli-backend](https://github.com/angeltr/srruffino-cannoli-backend)
 
-### `npm start`
+###Projectopzet
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Dit project is opgezet met React.
+Zorg ervoor dat als eerst ***"Node.js"*** en ***"NPM"*** geïnstalleerd zijn.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. npm install
+2. npm start
 
-### `npm test`
+###Mappen
+*documenten / applicaties*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src
+└── assets
+|    └── icons
+|        ├── Facebook-logo-clipart-2.png
+|        ├── Instagram-clipart.png
+|        └── Twitter-clipart.png 
+|    └── image
+|        ├── IMG-2022-Cappuccino.jpg
+|        └──   "      (alle afbeeldingen van 20 verschillende cannoli smaken)
+|              "              
+|              "             
+|            etc.
+|    └── logo    
+|        └── Logo Cannoli.png
+|    └── screenshots     
+|   
+└── components
+|    └── back
+|        ├── BackLink.js
+|        └── Back-module.css   
+|    └── buttons
+|        ├── Button.js
+|        └── Button-module.css   
+|    └── contactForm
+|        ├── ContactForm.js
+|        └── ContactForm-module.css    
+|    └── formErrorMessage
+|        ├── FormErrorMessage.js
+|        └── FormErrorMessage-module.css    
+|    └── formLink
+|        ├── FormLink.js
+|        └── FormLink-module.css
+|    └── formSubmit
+|        ├── FormSubmit.js
+|        └── FormSubmit-module.css
+|    └── inputField
+|        └── InputField.js
+|    └── loginForm
+|        ├── LoginForm.js
+|        └── LoginForm-module.css
+|    └── loginGoogle
+|        ├── LoginGoogle.js
+|        └── LoginGoogle-module.css
+|    └── mobileNavigation
+|        ├── MobileNavigation.js
+|        └── MobileNavigation-module.css
+|    └── navBar
+|        └── icons
+|           ├── NavBar.js
+|           └── NavBar-module.css
+|    └── navPageTitle
+|        ├── NavPageTitle.js
+|        └── NavPageTitle-module.css
+|    └── pageItems
+|        └── footer
+|           ├── Footer.js
+|           └── Footer-module.css
+|        └── header
+|           ├── Header.js
+|           └── Header-module.css
+|        └── pageDesignElements
+|           └── bookmarkBox
+|               ├── BookmarkBox.js
+|               └── BookmarkBox-module.css
+|           └── textContainer
+|               └── TextContainer.js
+|        └── route
+|           ├── PrivateRoute.js
+|           └── PublicRoute.js
+|    └── pages
+|        └── contact
+|           ├── Contact.js
+|           └── Contact-module.css
+|        └── home
+|           ├── Home.js
+|           └── Home-module.css
+|        └── profile
+|           ├── Profile.js
+|           └── Profile-module.css
+|        └── tabel
+|           ├── Tabel.js
+|           └── Tabel-module.css
+|    └── stylesheet
+|           ├── Base.css
+|           ├── Form.css
+|           ├── Grid.css
+|           ├── Hamburger.css
+|           ├── Reset.css
+|           ├── Typography.css
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+|    └── footer
+|        ├── Footer.js
+|        └── Footer-module.css
+|    └── header
+|        ├── Header.js
+|        └── Header-module.css
+|    └── navigation
+|        └── Navigation.js
+|    └── privateroute
+|        └── PrivateRoute.js
+|    └── products
+|        └── Product.js
+|    └── tile
+|        └── Tilet.js  
+└── context  
+|    └── AuthContext.js
+└── pages
+|    ├── Advertisement.js
+|    ├── ArticleOne.js
+|    ├── ArticleTwo.js
+|    ├── Compare.js
+|    ├── Contact.js   
+|    ├── Home.js   
+|    ├── Login.js 
+|    ├── Profile.js    
+|    ├── Register.js   
+|    ├── SignIn.js 
+|    ├── SignUp.js    
+|    └── ViewPage.js   
+```
 
-### `npm run eject`
+###Gebruikers
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+De gebruiker kan:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Registreren met ***e-mailadres*** en ***wachtwoord***
+2. inloggen met ***google***
+3. Bij voorkeur kan er een testaccount worden gebruikt.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Emailadres: novi@test.nl  
+Wachtwoord:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
