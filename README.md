@@ -1,23 +1,46 @@
-###Inhoudsopgave
+![cannoli-sr-ruffino](src/assets/logo/Logo%20Cannoli.png "cannoli-sr-ruffino logo")
 
-1. Naam Webapplicatie
-2. Projectopzet
+# Cannoli-sr-ruffino webapplicatie/ 2022 / Novi College / Eindopdracht Full Stack Developer
+Dit is het frontend gedeelte voor mijn webapplicatie "cannoli-sr-ruffino".
+
+## Inhoudsopgave
+1. Inleiding
+2. Applicatie starten
 3. Mappen (documenten / applicaties)
-4. Gebruikers
+4. Gebruikers / Rollen
 
-###srruffino-cannoli webapplicatie
+### Inleiding
+Cannoli-sr-ruffino-frontend is een onderdeel van het project backend
 
-Onderdeel van het project
-- [angeltr/srruffino-cannoli-backend](https://github.com/angeltr/srruffino-cannoli-backend)
+**Mijn Github voor de BACK-END vind je**  [hier](https://github.com/Angeltromper/cannoli-sr-ruffino-backend)
 
-###Projectopzet
+**Mijn Github voor de FRONT-END vind je** [hier](https://github.com/Angeltromper/cannoli-sr-ruffino-frontend)
+
+Clonen van de repository voor het frontend gedeelte van de webapplicatie "cannoli-sr-ruffino"
+- HTTPS: `https://github.com/angeltr/cannoli-sr-ruffino-frontend.git`
+- SSH:   `git@github.com:angeltr/cannoli-sr-ruffino-frontend.git` 
+
+---
+
+### Applicatie starten
 
 Dit project is opgezet met React.
-Zorg ervoor dat als eerst ***"Node.js"*** en ***"NPM"*** geïnstalleerd zijn.
+Na het clonen van het project naar jouw locale machine, installeer je als eerst de **node_modules** 
+door het volgende commando in de terminal te runnen:
 
-1. npm install
-2. npm start
+Stap 1.
+***npm install*** 
 
+Na het installeren kan de applicatie gestart worden met behulp van:
+
+Stap 2. 
+***npm start*** 
+
+Stap 3.
+Open daarna http://localhost:3000 om de pagina in de browser te bekijken. 
+
+---
+   
 ###Mappen
 *documenten / applicaties*
 
@@ -91,36 +114,43 @@ src
 |        └── route
 |           ├── PrivateRoute.js
 |           └── PublicRoute.js
-|    └── pages
-|        └── contact
-|           ├── Contact.js
-|           └── Contact-module.css
-|        └── home
-|           ├── Home.js
-|           └── Home-module.css
-|        └── profile
-|           ├── Profile.js
-|           └── Profile-module.css
-|        └── tabel
-|           ├── Tabel.js
-|           └── Tabel-module.css
-|    └── stylesheet
-|           ├── Base.css
-|           ├── Form.css
-|           ├── Grid.css
-|           ├── Hamburger.css
-|           ├── Reset.css
-|           ├── Typography.css
+|     └── product
+|           └── cannoli
+|               └── Cannoli.js
+|           └── packaging
+|               ├── Packaging.js
+|               └── Packaging.module-css
+|     └── tile
+|           └── Tile.js
+|     └── titleAndDescription
+|           ├── TitleAndDescription.js
+|           └── TitleAndDescription.module-css
+└── context
 
 
 
+└── pages
+|    └── contact
+|        ├── Contact.js
+|        └── Contact-module.css
+|    └── home
+|        ├── Home.js
+|        └── Home-module.css
+|    └── profile
+|        ├── Profile.js
+|        └── Profile-module.css
+|    └── tabel
+|        ├── Tabel.js
+|        └── Tabel-module.css
+└── stylesheet
+|    ├── Base.css
+|    ├── Form.css
+|    ├── Grid.css
+|    ├── Hamburger.css
+|    ├── Reset.css
+|    └── Typography.css
 
-|    └── footer
-|        ├── Footer.js
-|        └── Footer-module.css
-|    └── header
-|        ├── Header.js
-|        └── Header-module.css
+
 |    └── navigation
 |        └── Navigation.js
 |    └── privateroute
@@ -143,17 +173,31 @@ src
 |    ├── Register.js   
 |    ├── SignIn.js 
 |    ├── SignUp.js    
-|    └── ViewPage.js   
+|    └── ViewPage.js
+
 ```
 
-###Gebruikers
+###Gebruikers & Rollen
 
 De gebruiker kan:
 
-1. Registreren met ***e-mailadres*** en ***wachtwoord***
-2. inloggen met ***google***
+1. Registreren met ***E-MAIL ADRES*** en ***WACHTWOORD***
+2. Inloggen met ***GOOGLE***
 3. Bij voorkeur kan er een testaccount worden gebruikt.
+4. Testen en runnen van de applicatie door gebruik van ***ADMIN_ROLE*** en ***USER_ROLE*** 
 
 Emailadres: novi@test.nl  
-Wachtwoord:
+Wachtwoord: 123123
 
+**ADMIN_ROLE**
+- Gebruikersnaam: admin
+- Wachtwoord: ......... 
+
+**USER_ROLE**
+- Gebruikersnaam: .........
+- Wachtwoord: ..........
+
+
+
+
+###### Eindopdracht Full-Stack Developer NOVI College / Angelique Tromper / Copyright © 2022 Cannoli-sr-ruffino/ Alle rechten voorbehouden.
