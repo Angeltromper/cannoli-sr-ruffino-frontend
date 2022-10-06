@@ -2,45 +2,39 @@
 
 /*////////////////////
     Table of Contents
-    1. Global Styles
-    2. Typography
-    3. Layout
-      3.1 Reusables
-      3.2 Other
-    4. Areas
-      4.1 Header
-      4.2 Introduction
-      4.3 Work
-      4.4 Services
-      4.5 Contact
-      4.6 Footer
+    1.  Global Styles
+    2.  Typography
+    3.  Layout
+    4.  Header
+    4. Introduction
+    4.1 Cannoli
+    4.2 Service
+    4.3 Contact
+    4.4 Footer
     5. Media Queries
 ////////////////////*/
 
-/*-------------------------------1 Global Styles-------------------------------------------------*/
+/*--------------------- Global Styles ---------------------*/
 
 :root {
-    --light-brown: #331408;
-    --brown: #251009;
-    --dark-brown: #150a06;
-    --light-blue: #3CF5EA;
-    --light-orange: #FE813B;
-    --pink: #FF003D;
-    --groen: #73A336;
-    --red: #F10303;
-    --standardtext-color: #0C0C0C;
-    --logotext-color: #CEA71E;
-    --text-color: #11074D;
-    --floating-words-color: #F3F6F9;
-    --bgprojects-color: #F3F6F9;
-    --service-style-color: #7A7A7A;
-    --font-family: Roboto, Arial, Helvetica sans-serif;
-    --font-family-title: Merriweather, sans-serif;
+    --main-font: Merriweather;
+    --main-text-weight: 500;
+    --second-font: 'Roboto', sans-serif;
+    --second-font-line-height: 20px;
 
-    --border: 0.3em solid var(--black);
-    --dropshadow:  0.6em 0.6em 0 var(--black);
-    --margin: 2em;
-    --minusTop: -9rem;
+    --light-brown: #251009;
+    --dark-brown: #150A06;
+    --pink: #FF003D;
+    --green: #1AE216;
+    --white: #FFFFFF;
+    --black: #010101;
+
+    --text-logo: #CEA71E;
+    --text-faded: #F3F6F9;
+    --text-color-error: #F40000;
+
+    --border: 0.2em solid var(--black);
+    --dropshadow: 0.4em 0.4em 0 var(--black);
 }
 
 #root {
@@ -50,14 +44,15 @@
 
 * {
     padding: 0;
+    /*Met de padding worden de hoogtes en breedtes van de elementen berekend en inclusief padding en borders*/
     margin: 0;
     box-sizing: border-box;
 }
 
 body {
-
     font-size: 20px;
     font-weight: 300;
+    font-family: Arial, Roboto, sans-serif;
     background: var(--bgprojects-color)
 }
 
@@ -67,7 +62,7 @@ body {
     box-sizing: border-box;
 }
 
-/*-------------------------------2 Typography -------------------------------------------------*/
+/*--------------------- Typography---------------------*/
 
 .page-title h1 {
     font-size: 1.8em;
@@ -79,19 +74,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2 {
-
+    font-size: 46px;
+    padding: 16px 0;
 }
 
 h3 {
-
+    font-size: 36px
 }
 
 h4 {
-
-}
-
-h4 {
-    font-size: 30px;
+    font-size: 32px;
     padding: 12px 0;
     margin: 24px 0;
 }
@@ -102,6 +94,22 @@ h4::after {
     margin: 24px 0 0;
     width: 57px;
     height: 6px;
+    background-image: url();
+}
+
+h5 {
+    font-size: 32px;
+    padding: 12px 0;
+}
+
+h6 {
+    font-size: 32px;
+    line-height: 1.5;
+    padding: 12px 0;
+}
+
+p {
+    margin: 12px 0;
 }
 
 header {
@@ -114,30 +122,256 @@ header {
     align-items: center;
     background: url('./assets/background/IMG-20201217-Limoncello layout.jpg');
     background-size: cover;
-
 }
-/*------------------------------- 3. Layout -------------------------------------------------*/
 
-/*------------------------------- 3.1 Reusables ---------------------------------------------*/
+/*--------------------- Lay-out ---------------------*/
 
-/*------------------------------- 3. Others -------------------------------------------------*/
+/* De buitenste container is altijd de volledige schermbreedte. Een flexibel container met de inhoud horizontaal gecentreerd*/
 
-/*------------------------------- 4. Areas --------------------------------------------------*/
+.outer-content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
-/*------------------------------- 4.1 Header --------------------------------------------------*/
+/*De binnenste container is maximaal 1400px breed, zodat deze ook op bredere schermen er goed blijft uitzien.*/
+/*De binnenste container mag krimpen als het scherm minder breed wordt, maar mag niet groeien als er meer ruimte is.*/
+.inner-content-container {
+    flex-basis: 1400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    /* Aan de linker en rechterkant voegen we margin toe, zodat de content nooit helemaal tegen de rand gedrukt kan worden*/
+    margin: 0 20px;
+    /*Deze flex-item is ook een flexbox container, hier komen alle children onder elkaar te staan*/
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
 
-/*------------------------------- 4.2 Header --------------------------------------------------*/
+/*We gebruiken hier geen flex-basis property, omdat dit element soms in een parent met column-richting en soms in een parent met row-richting kan staan.
+In een column gaat flex-basis over de hoogte en niet de breedte. Om alsnog de breedte te veranderen, hebben we max-width (nooit groter dan dit) property nodig*/
+.default-text-restrictor {
+    max-width: 850px;
+    text-align: center;
+}
 
-/*------------------------------- 4.3 Header --------------------------------------------------*/
+.default-area-padding {
+    padding: 200px 0 100px 0;
+}
 
-/*------------------------------- 4.4 Header --------------------------------------------------*/
+.skewer--bottom {
+    border-bottom: 50px solid #150A06;
+    border-right: 100vw solid transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.skewer--top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 50px solid #150A06;
+    border-left: 100vw solid transparent;
+    z-index: 1;
+}
+
+/*--------------------- Button(s) ---------------------*/
+
+a,
+a:visited,
+a:link {
+    text-decoration: none;
+    color: var(--dark-brown);
+}
+
+button {
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background-color: var(--white);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 5px 8px 4px rgba(0, 0, 0, .2);
+    padding: 25px 40px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/*--------------------- Header---------------------*/
 
 
-/*------------------------------- 4.5 Header --------------------------------------------------*/
+#header {
+    background: var(--dark-brown);
+
+    background:linear-gradient(129deg, var(--dark-brown) 0%, var(--dark-brown) 30%, var(--light-brown) 100%);
+    color: white;
+    padding: 30px 0;
+    position: relative;
+}
+
+#header::before {
+    content: '';
+    display: block;
+    width: 78px;
+    height: 100px;
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 39px);
+}
+
+#header::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-image: url(asse)
+    background-position: top center;
+    background-size: auto;
+}
+
+.header-content__navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+/*--------------------- Introduction ---------------------*/
+
+#intro::before {
+    display: block;
+    content: 'welcome';
+    color: var(--text-faded);
+    font-size: 550px;
+    opacity: 0.6;
+    font-weight: 600;
+    left: 0;
+    top: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    letter-spacing: -18px;
+}
+
+/*--------------------- Cannoli --------------------*/
 
 
-/*------------------------------- 4.6 Header --------------------------------------------------*/
+/*--------------------- Service ---------------------*/
+
+
+/*--------------------- Contact ---------------------*/
+
+
+/*--------------------- Footer ---------------------*/
 
 
 
-/*------------------------------- 5. Header --------------------------------------------------*/
+
+
+/*--------------------- Media Queries ---------------------*/
+
+
+/*Omdat hier maar zo weinig media-queries nodig zijn is er gebruik gemaakt van een max-width query.*/
+/*Normaliter maak je altijd gebruik van min-width queries, waarbij de versie voor mobiel buiten de query staat, */
+/*en de versie voor desktop juist BUITEN de query*/
+@media screen and (max-width: 576px) {
+    h1, h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+
+    h3 {
+        font-size: 26px;
+    }
+
+
+    h6 {
+        font-size: 22px;
+        line-height: 1.5;
+        padding: 12px 0;
+    }
+
+    .header-content__navigation {
+        justify-content: center;
+    }
+
+    .header-content__navigation a {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    #intro > div {
+        padding: 100px 0;
+    }
+
+    #intro::before {
+        font-size: 150px;
+        letter-spacing: -10px;
+        top: 40px;
+    }
+
+    .intro__link {
+        margin: 50px 0 0 0;
+    }
+
+    #work::before {
+        font-size: 150px;
+        top: 80px;
+        letter-spacing: -5px;
+    }
+
+    #work {
+        padding: 0;
+    }
+
+    .work-article:nth-of-type(odd),
+    .work-article {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .work-article__image-wrapper {
+        /*om de breedte, die nu geldt als lengte, te overschrijven*/
+        flex-basis: auto;
+    }
+
+    .work-article__info-container {
+        padding: 0 0 50px 0;
+        /*om de breedte, die nu geldt als lengte, te overschrijven*/
+        flex-basis: auto;
+    }
+
+    #services {
+        padding: 50px 0;
+    }
+
+    #services::before {
+        font-size: 100px;
+        top: 70px;
+    }
+
+    #services > div {
+        padding: 100px 0 50px 0;
+    }
+
+    #contact > div {
+        padding: 100px 0 0 0;
+    }
+}
+
+
+
+
+
+
