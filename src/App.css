@@ -5,16 +5,20 @@
     1.  Global Styles
     2.  Typography
     3.  Layout
-    4.  Header
-    4. Introduction
-    4.1 Cannoli
-    4.2 Service
-    4.3 Contact
-    4.4 Footer
-    5. Media Queries
+    4.  Scrollbar
+    5.  Header
+    5.1 Header-Image
+    5.2 Header-Navigation
+    6.  Button
+    7.  Service
+    8.  Contact
+    9.  Footer
+    10. Media Queries
+
+
 ////////////////////*/
 
-/*--------------------- Global Styles ---------------------*/
+/*--------------------- 1. Global Styles ---------------------*/
 
 :root {
     --main-font: Merriweather;
@@ -26,15 +30,17 @@
     --dark-brown: #150A06;
     --pink: #FF003D;
     --green: #1AE216;
+    --light-yellow: #FAF34A;
     --white: #FFFFFF;
     --black: #010101;
 
     --text-logo: #CEA71E;
-    --text-faded: #F3F6F9;
     --text-color-error: #F40000;
 
     --border: 0.2em solid var(--black);
     --dropshadow: 0.4em 0.4em 0 var(--black);
+
+    --margin: 2em;
 }
 
 #root {
@@ -50,10 +56,9 @@
 }
 
 body {
-    font-size: 20px;
-    font-weight: 300;
-    font-family: Arial, Roboto, sans-serif;
-    background: var(--bgprojects-color)
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    background: var(--white)
 }
 
 *,
@@ -62,7 +67,7 @@ body {
     box-sizing: border-box;
 }
 
-/*--------------------- Typography---------------------*/
+/*---------------------2.Typography---------------------*/
 
 .page-title h1 {
     font-size: 1.8em;
@@ -71,60 +76,26 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: Merriweather, 'Times New Roman', serif;
+    /*margin-top: 0.5em;*/
 }
 
-h1, h2 {
-    font-size: 46px;
-    padding: 16px 0;
+h2 {
+    font-size: 2.0rem;
+    /*2.0rem = 33px* uitgaand van standaard 16pixel*/
 }
 
 h3 {
-    font-size: 36px
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
 }
 
-h4 {
-    font-size: 32px;
-    padding: 12px 0;
-    margin: 24px 0;
-}
-
-h4::after {
-    display: block;
-    content: '';
-    margin: 24px 0 0;
-    width: 57px;
-    height: 6px;
-    background-image: url();
-}
-
-h5 {
-    font-size: 32px;
-    padding: 12px 0;
-}
-
-h6 {
-    font-size: 32px;
-    line-height: 1.5;
-    padding: 12px 0;
-}
 
 p {
-    margin: 12px 0;
+    font-size: 1em;
+    margin-bottom: 1rem;
 }
 
-header {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: url('./assets/background/IMG-20201217-Limoncello layout.jpg');
-    background-size: cover;
-}
-
-/*--------------------- Lay-out ---------------------*/
+/*---------------------3.Lay-out ---------------------*/
 
 /* De buitenste container is altijd de volledige schermbreedte. Een flexibel container met de inhoud horizontaal gecentreerd*/
 
@@ -133,6 +104,9 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding-top: 50px;
+    min-height: 80vh;
+overflow: hidden;
 }
 
 /*De binnenste container is maximaal 1400px breed, zodat deze ook op bredere schermen er goed blijft uitzien.*/
@@ -150,81 +124,75 @@ header {
     z-index: 2;
 }
 
+.left-section-container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.right-section-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.cannoliCard-container {
+    padding-top: 100px;
+}
+
+
 /*We gebruiken hier geen flex-basis property, omdat dit element soms in een parent met column-richting en soms in een parent met row-richting kan staan.
 In een column gaat flex-basis over de hoogte en niet de breedte. Om alsnog de breedte te veranderen, hebben we max-width (nooit groter dan dit) property nodig*/
 .default-text-restrictor {
     max-width: 850px;
     text-align: center;
 }
+/*--------------------- 4.Scrollbar ---------------------*/
 
-.default-area-padding {
-    padding: 200px 0 100px 0;
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
 }
 
-.skewer--bottom {
-    border-bottom: 50px solid #150A06;
-    border-right: 100vw solid transparent;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
+.scrollbar::-webkit-scrollbar-track {
+    background: none;
 }
 
-.skewer--top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-top: 50px solid #150A06;
-    border-left: 100vw solid transparent;
-    z-index: 1;
-}
-
-/*--------------------- Button(s) ---------------------*/
-
-a,
-a:visited,
-a:link {
-    text-decoration: none;
-    color: var(--dark-brown);
-}
-
-button {
-    font-size: 14px;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: white;
+.scrollbar::-webkit-scrollbar-thumb {
     background-color: var(--white);
-    border: none;
-    border-radius: 50px;
-    box-shadow: 0 5px 8px 4px rgba(0, 0, 0, .2);
-    padding: 25px 40px;
+    border-radius: 20px;
+    border: 3px solid var(--white);
 }
 
-button:hover {
-    cursor: pointer;
+.list-title {
+    width: 400px;
+    text-align: center;
 }
 
-/*--------------------- Header---------------------*/
+.cannolilist {
+    font-family: var(--second-font);
+    height: 648px;
+}
+
+
+/*--------------------- 5.Header ---------------------*/
 
 
 #header {
     background: var(--dark-brown);
-
-    background:linear-gradient(129deg, var(--dark-brown) 0%, var(--dark-brown) 30%, var(--light-brown) 100%);
-    color: white;
-    padding: 30px 0;
+    /*Voor verouderde browsers die geen gradients ondersteunen. Bij deze valt de browser terug op de "effen" achtergrondkleur hierboven*/
+    background: linear-gradient(129deg, var(--dark-brown) 0%, var(--dark-brown) 30%, var(--light-brown) 100%);
+    color: var(--white);
+    padding: 50px 0;
     position: relative;
 }
 
 #header::before {
     content: '';
     display: block;
-    width: 78px;
-    height: 100px;
+    width: 4.8em;
+    height: 6em;
     position: absolute;
-    bottom: 20px;
-    left: calc(50% - 39px);
+    margin-bottom: 1.2rem;
 }
 
 #header::after {
@@ -234,144 +202,342 @@ button:hover {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    min-height: 4rem;
     opacity: 0.6;
-    background-image: url(asse)
     background-position: top center;
     background-size: auto;
 }
 
+header .logo {
+    width: 12em;
+    padding: 1em ;
+    margin: var(--margin);
+    transform:revert;
+}
+
+/*---------------------5.1 Header-Image ---------------------*/
+
+.header-img-container {
+    top: -12px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-img {
+    width: 100%;
+    min-height: 5rem;
+    background-color: var(--dropshadow);
+}
+
+
+/*---------------------5.2 Header-Navigation ---------------------*/
+
 .header-content__navigation {
     display: flex;
     flex-direction: row;
+    /*De <ul> die in de <nav> zit, wordt rechts (einde van de rij) uitgelijnd */
     justify-content: flex-end;
+    /*De <nav> moet de beschikbare breedte van de pagina aannemen, anders valt er niks uit te lijnen aan de rechterkant */
 }
 
-/*--------------------- Introduction ---------------------*/
+.nav-container {
+    background-color: var(--dark-brown);
+}
 
-#intro::before {
-    display: block;
-    content: 'welcome';
-    color: var(--text-faded);
-    font-size: 550px;
-    opacity: 0.6;
-    font-weight: 600;
-    left: 0;
-    top: 0;
-    position: absolute;
-    text-align: center;
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    padding: 1em;
+    position: relative;
     width: 100%;
-    letter-spacing: -18px;
+    top: -0.5em;
+    left: -4%;
+    border: var(--border);
+    box-shadow: var(--dropshadow);
+    z-index: 2;
+    font-size: 1rem;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    animation-duration: .6s;
 }
 
-/*--------------------- Cannoli --------------------*/
+
+.nav-home {
+    animation-name:animateLeftSideDown;
+    transform: rotate(-1.2deg);
+}
+
+@keyframes animateLeftSideDown {
+    50% {transform: rotate(-1.2deg);}
+}
+
+.nav-cannoli {
+    animation-name: animateLeftSideDownLight;
+    transform: rotate(-1.2deg);
+}
+
+@keyframes animateLeftSideDownLight {
+    50% {transform: rotate(1.8deg);}
+}
+
+.nav-geschenkbox {
+    animation-name: animateLeftSideDownLight;
+    transform: rotate(-1.2deg);
+}
+
+@keyframes animateLeftSideDownLight {
+    50% {transform: rotate(1.8deg);}
+}
+
+.nav-franchise {
+    animation-name: animateRightSideDownLight;
+    transform: rotate(-1.2deg);
+}
+
+@keyframes animateRightSideDownLight {
+    50% {transform: rotate(1.8deg);}
+}
+
+.nav-service {
+    animation-name: animateRightSideDownLight;
+    transform: rotate(-1.2deg);
+}
+
+@keyframes animateRightSideDownLight {
+    50% {
+        transform: rotate(1.8deg);}
+}
+
+.nav-contact {
+  animation-name: animateRightSideDown
+}
+
+@keyframes animateRightSideDown {
+    50% {transform: rotate(2.2deg);}
+}
+
+/*---------------------6 Button---------------------*/
+
+button:visited {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background-color: var(--pink);
+    margin: var(--margin);
+    border: var(--border);
+    border-radius: 50px;
+    box-shadow: var(--dropshadow);
+    padding: 1.2em 2.2em;
+}
+
+button:hover {
+    cursor: pointer;
+    /*transform: translateY(0.1em);*/
+    /*box-shadow: 0.3em 0.3em 0 var(--black);*/
+}
+
+button:active {
+    transform: translate(0.4em);
+    color: var(--white);
+    box-shadow: 0.1em 0.1em 0 var(--black);
+}
+
+.button-text {
+    display: flex;
+}
+
+.button-text::after {
+    content: "→";
+    margin-left: 0.2em;
+    transform: translateX(0.5em);
+}
+
+/*--------------------- Page ---------------------*/
+
+.page-content {
+    margin: 4ch;
+    position: relative;
+}
 
 
-/*--------------------- Service ---------------------*/
 
 
-/*--------------------- Contact ---------------------*/
+
+
 
 
 /*--------------------- Footer ---------------------*/
 
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+hr {
+    height: 0.1em;
+    border: var(--border);
+    width: 95%;
+    margin: 1em;
+}
+
+footer {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    gap: 5%;
+    margin: var(--margin);
+    flex-wrap: wrap;
+}
+
+.footer-menu, .footer-txt, .footer-logo {
+    margin-top: var(--margin);
+}
+
+.footer-menu {
+    flex-grow: 1;
+    max-width: 20ch;
+}
+
+.footer-txt {
+    text-align: center;
+    flex-grow: 2;
+    max-width: 40ch;
+}
+
+.footer-logo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 20ch;
+}
+
+footer.logo {
+    width: 6em;
+    padding: 1em;
+    transform: rotate(-1.3deg);
+}
+
+.color-swatches {
+    display: flex;
+}
+
+.color-swatches div{
+    width: 2.5em;
+    height:2.5em;
+    margin: 2px;
+}
+
+.footer-color-dark-brown {
+    background-color: var(--dark-brown);
+}
+
+.footer-color-pink {
+    background-color: var(--pink);
+}
+
+.footer-color-green {
+    background-color: var(--green);
+}
+
+.footer-color-light-yellow {
+    background-color: var(--light-yellow);
+}
+
+.color-swatches div:hover {
+    border: var(--border);
+}
 
 
 
 /*--------------------- Media Queries ---------------------*/
 
-
 /*Omdat hier maar zo weinig media-queries nodig zijn is er gebruik gemaakt van een max-width query.*/
 /*Normaliter maak je altijd gebruik van min-width queries, waarbij de versie voor mobiel buiten de query staat, */
 /*en de versie voor desktop juist BUITEN de query*/
-@media screen and (max-width: 576px) {
-    h1, h2 {
-        font-size: 36px;
-        padding: 16px 0;
-    }
 
-    h3 {
-        font-size: 26px;
-    }
-
-
-    h6 {
-        font-size: 22px;
-        line-height: 1.5;
-        padding: 12px 0;
-    }
-
-    .header-content__navigation {
-        justify-content: center;
-    }
-
-    .header-content__navigation a {
-        font-size: 16px;
-        font-weight: 600;
-    }
-
-    #intro > div {
-        padding: 100px 0;
-    }
-
-    #intro::before {
-        font-size: 150px;
-        letter-spacing: -10px;
-        top: 40px;
-    }
-
-    .intro__link {
-        margin: 50px 0 0 0;
-    }
-
-    #work::before {
-        font-size: 150px;
-        top: 80px;
-        letter-spacing: -5px;
-    }
-
-    #work {
-        padding: 0;
-    }
-
-    .work-article:nth-of-type(odd),
-    .work-article {
+/*MOBILE RESPONSIVE*/
+@media screen and (max-width:600px) {
+    .outer-content-container {
+        display: flex;
         flex-direction: column;
-        margin: 0;
     }
 
-    .work-article__image-wrapper {
-        /*om de breedte, die nu geldt als lengte, te overschrijven*/
-        flex-basis: auto;
+    .left-section-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 260px;
     }
 
-    .work-article__info-container {
-        padding: 0 0 50px 0;
-        /*om de breedte, die nu geldt als lengte, te overschrijven*/
-        flex-basis: auto;
+    .right-section-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 
-    #services {
-        padding: 50px 0;
+    .right-box-container {
+        padding-top: 0px;
     }
 
-    #services::before {
-        font-size: 100px;
-        top: 70px;
+    .cannoliCard-container {
+        padding-top: 20px;
     }
 
-    #services > div {
-        padding: 100px 0 50px 0;
+    .scrollbar {
+        max-height: 220px;
     }
 
-    #contact > div {
-        padding: 100px 0 0 0;
+    .list-title {
+        width: 340px;
+    }
+
+    .cannolilist {
+        height: 420px;
+    }
+
+    button:visited {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: white;
+        background-color: var(--pink);
+        margin: var(--margin);
+        border: var(--border);
+        border-radius: 50px;
+        box-shadow: var(--dropshadow);
+        padding: 1.2em 2.2em;
+    }
+
+    button:hover {
+        cursor: pointer;
+        transform: translateY(0.1em);
+        box-shadow: 0.3em 0.3em 0 var(--black);
+    }
+
+    button:active {
+        transform: translate(0.4em);
+        color: var(--white);
+        box-shadow: 0.1em 0.1em 0 var(--black);
+    }
+
+    .button-text {
+        display: flex;
+    }
+
+    .button-text::after {
+        content: "→";
+        margin-left: 0.2em;
     }
 }
-
-
-
-
-
 
