@@ -20,6 +20,12 @@
 
 /*--------------------- 1. Global Styles ---------------------*/
 
+.body {
+    background-color: cornflowerblue;
+}
+
+
+
 :root {
     --main-font: Merriweather;
     --main-text-weight: 500;
@@ -106,7 +112,7 @@ p {
     justify-content: center;
     padding-top: 50px;
     min-height: 80vh;
-overflow: hidden;
+    overflow: hidden;
 }
 
 /*De binnenste container is maximaal 1400px breed, zodat deze ook op bredere schermen er goed blijft uitzien.*/
@@ -168,7 +174,7 @@ In een column gaat flex-basis over de hoogte en niet de breedte. Om alsnog de br
     text-align: center;
 }
 
-.cannolilist {
+.CannoliList {
     font-family: var(--second-font);
     height: 648px;
 }
@@ -208,7 +214,7 @@ In een column gaat flex-basis over de hoogte en niet de breedte. Om alsnog de br
     background-size: auto;
 }
 
-header .logo {
+.header .logo {
     width: 12em;
     padding: 1em ;
     margin: var(--margin);
@@ -369,10 +375,6 @@ button:active {
 
 
 
-
-
-
-
 /*--------------------- Footer ---------------------*/
 
 .footer-container {
@@ -388,7 +390,7 @@ hr {
     margin: 1em;
 }
 
-footer {
+.footer {
     width: 80%;
     display: flex;
     justify-content: space-around;
@@ -420,7 +422,7 @@ footer {
     max-width: 20ch;
 }
 
-footer.logo {
+.footer.logo {
     width: 6em;
     padding: 1em;
     transform: rotate(-1.3deg);

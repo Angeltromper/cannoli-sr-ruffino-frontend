@@ -134,7 +134,7 @@ src
 |        ├── Contact.js
 |        └── Contact-module.css
 |    └── home
-|        ├── Home.js
+|        ├── Homepage.js
 |        └── Home-module.css
 |    └── profile
 |        ├── Profile.js

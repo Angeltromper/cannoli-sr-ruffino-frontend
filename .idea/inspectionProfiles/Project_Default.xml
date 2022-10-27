@@ -20,6 +20,5 @@
     <inspection_tool class="AngularUndefinedBinding" enabled="true" level="TYPO" enabled_by_default="true" />
     <inspection_tool class="AngularUndefinedModuleExport" enabled="true" level="TYPO" enabled_by_default="true" />
     <inspection_tool class="AngularUndefinedTag" enabled="true" level="TYPO" enabled_by_default="true" />
-    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
   </profile>
 </component>

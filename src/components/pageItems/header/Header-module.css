@@ -1,0 +1,30 @@
+header {
+    position: relative;
+    height: 8.5em;;
+    background-color: var(--dark-brown);
+    display: flex;
+    justify-content: revert;
+}
+
+header button, header button:visited {
+    background-color: var(--pink);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    margin: var(--margin);
+    border: var(--border);
+    border-radius: 50px;
+    box-shadow: var(--dropshadow);
+    padding: 1.2em 2.2em;
+}
+
+
+
+
+
+
+
+
+
+}

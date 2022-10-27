@@ -3,28 +3,19 @@ import {useCannoliContext} from "../../context/CannoliContext";
 import MainButton from "../../components/buttons/mainButton/MainButton";
 import HelpButton from "../../components/buttons/helpButton/HelpButton";
 import CannoliCardLogo from "../../components/cannoliCardLogo/CannoliCardLogo";
-import Contact from "../../pages/contact/Contact";
-import Franchise from "../../pages/franchise/Franchise";
-import Giftbox from "../../components/giftbox/Giftbox";
+import profile from '../../assets/icons/navIcons/profile.png';
 
-
-
-
-
-
-import search from '../../assets/icons/navIcons/search.png';
-import profile from'../../assets/icons/navIcons/profile.png';
-import '../../App.css';
-import '../Welcome.css';
 
 function Welcome() {
     const {setPageTitle} = useCannoliContext();
+
 
     useEffect(() => {
         setPageTitle('Welcome');
     }, []);
 
     return (
+
         <main className= "outer-content-container">
             <section className='left-section-container'>
                 <figure className="CannoliCard-container">
@@ -45,7 +36,7 @@ function Welcome() {
                         link={"/cannoli"}/>
                     <MainButton
                         name="Giftbox"
-                        link={"/giftbox"}
+                        link={"/giftbox"}/>
                     <MainButton
                         name="Franchise"
                         link={"/franchise"}/>
@@ -58,13 +49,10 @@ function Welcome() {
                     <MainButton
                         name="Profile"
                         icon={profile}
+                        link={"/profile"}/>
                     <MainButton
                         name="Search"
-                        icon={"/search"}/>
-                    <MainButton
-                        name="Shopping Cart"
-                        icon={"/shopping cart"}/>
-
+                        icon={search}/>
                 </article>
             </section>
         </main>
@@ -72,3 +60,4 @@ function Welcome() {
 }
 
 export default Welcome;
+

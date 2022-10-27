@@ -1,119 +1,92 @@
-import React, {useState} from 'react';
+import { Route, NavLink, useLocation } from 'react-router-dom';
+import {useLayoutEffect, useState} from 'react';
 import './App.css';
-import {Route, Routes} from "react-router-dom";
 
+import Nav from "./components/pageItems/nav/Nav";
+import PublicRoute from "./components/pageItems/route/PublicRoute";
+import Homepage from "./pages/homepage/Homepage";
+import Profile from "./pages/profile/Profile";
+import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
+import PrivateRoute from "./components/pageItems/route/PrivateRoute";
 import Welcome from "./pages/welcome/Welcome";
 import SignIn from "./pages/account/SignIn";
 import SignUp from "./pages/account/SignUp";
-import AllCannolis from "./pages/allCannolis/AllCannolis";
-import headerImg
-    from '../../cannoli-sr-ruffino-frontend/src/assets/header/Background header 3@2x.png'
+import SearchCannoli from "./pages/searchCannoli/SearchCannoli"
+import SearchResult from "./pages/searchCannoli/SearchResultat";
+import CannoliView from "./pages/cannoliView/CannoliView";
+import Cannoli from "./pages/cannoli/Cannoli";
+import Giftbox from "./pages/giftbox/Giftbox";
+import Franchise from "./components/franchise/Franchise";
+import Service from "./pages/service/Service";
 import Contact from "./pages/contact/Contact";
-import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
-import Franchise from "./pages/franchise/Franchise";
-import Giftbox from "./components/giftbox/Giftbox";
-import GlutenFreeCannoli from "./pages/glutenfreeCannoli/GlutenFreeCannoli";
-import Help from "./pages/help/Help";
-import Information from ".pages/information/Information";
-import CannoliByIngredient from ".pages/ingredient/CannoiByIngriedent";
-import Cookies from ".pages/privacy/Cookies";
-import Disclaimer from ".pages/privacy/Disclaimer";
-import General from ".pages/privacy/General";
-import Product from ".pages/productPages/Product";
-import Profile from "./pages/profile/Profile";
-import SearchCannoli from ".pages/searchCannoli/SearchCannoli";
-import SearchResultat from ".pages/searchCannoli/SearchResultat";
-import UserInfoForm from ".pages/user/UserInfoForm";
+import ApproveCannoli from "./pages/privacy/ApproveCannoli";
+import PrivacyPolicy from "./pages/privacy/PrivacyPolicy";
+import Faq from "/pages/privacy/Faq";
 import FourZeroFour from "./pages/404/FourZeroFour";
-import PrivateRoute from "./components/pageItems/route/PrivateRoute";
-import Header from "./components/pageItems/header/Header";
-import Footer from "./components/pageItems/footer/Footer";
+import { AuthContext } from './context/AuthContext';
 
 
 function App() {
+    const [headerImage, setHeaderImage] = useState(headerImg);
+    const [pageTitle, setPageTitle] = useState ("Cannoli-sr-ruffino");
 
-  const [headerImage, setHeaderImage] = useState(headerImg);
-  const [pageTitle, setPageTitle] = useState("Cannoli-Sr-Ruffino");
+    const Wrapper = ({children}) => {
+        const location = useLocation();
+        useLayoutEffect(() => {
+            document.documentElement.scrollTo(0, 0);
+        }, [location.pathname]);
+        return children
+    }
 
+    return (
+        <Wrapper>
+            <div className="container">
+                <Header headerImage={headerImage} pageTitle={pageTitle}/>
 
-  return (
-      <div className= "container">
-          <Header headerImage={headerImage} pageTitle={pageTitle}/>i
+                <Routes>
+                    <Route  path="/*"
+                            element={<Homepage headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route  path="/forgotPassword"
+                            element={<ForgotPassword headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/welcome"
+                           element={<Welcome headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/searchCannoli"
+                           element={<SearchCannoli headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/searchResult"
+                           element={<SearchResult headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/cannoliView/:id"
+                           element={<CannoliView headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/cannoli"
+                           element={<Cannoli headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/giftbox"
+                           element={<Giftbox headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/franchise"
+                           element={<Franchise headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/service"
+                           element={<Service headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/contact"
+                           element={<Contact headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/profile"
+                           element={<PrivateRoute><Profile headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/faq/"
+                           element={<Faq headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="privacy-policy/"
+                           element={<PrivacyPolicy headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/inloggen/"
+                           element={<SignIn headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/registreren/"
+                           element={<SignUp headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/cannoli-accepteren/:cannoliId"
+                           element={<PrivateRoute><ApproveCannoli headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/">
+                        <FourZeroFour/>
+                    </Route>
 
-          <Routes>
-              <Route path="/*"
-                     element={<Welcome headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/inloggen/*"
-                     element={<SignIn headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/registreren/*"
-                     element={<SignUp headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/overzicht Cannolis/*"
-                     element={<AllCannolis headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/contact/*"
-                     element={<Contact headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/wachtwoord-opnieuw-aanvragen/*"
-                     element={<ForgotPassword headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/franchise/*"
-                     element={<Franchise headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/giftbox/*"
-                     element={<Giftbox headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-
-              <Route path="/Cannolis-glutenvrij/*"
-                   element={<GlutenFreeCannoli headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/help/*"
-                     element={<Help headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/informatie/*"
-                     element={<Information headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/Cannoli-ingredienten/*"
-                     element={<CannoliByIngredient headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/akkoord website*"
-                     element={<Cookies headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/disclaimer/*"
-                     element={<Disclaimer headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/general/*"
-                     element={<General headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/pagina-producten/*"
-                     element={<Product headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/profiel/*"
-                     element={<Profile headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/cannoli-zoeken/*"
-                     element={<SearchCannoli headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/zoek-resultaat/*"
-                     element={<SearchResultat headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/Gebruikershandleiding/*"
-                     element={<UserInfoForm headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/404-pagina-niet-gevonden/*"
-                     element={<FourZeroFour headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
-              <Route path="/Profiel/*"
-                     element={<PrivateRoute><Profile headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/></PrivateRoute>}/>
-
-          </Routes>
-          <Footer>
-                  <p>Eindopdracht Full-Stack Developer NOVI College / Angelique Tromper / Copyright © 2022 Cannoli-sr-ruffino/ Alle rechten voorbehouden. </p>
-          </Footer>
-          </div>
-  );
+                    </Routes>
+                <Footer/>
+            </div>
+        </Wrapper>
+    );
 }
 
 export default App;
