@@ -24,12 +24,6 @@ function Header({headerImg, pageTitle}) {
             </header>
             <NavLink to={}
 
-
-
-
-
         </>
     )
-
-
 }
