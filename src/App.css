@@ -19,22 +19,21 @@
 ////////////////////*/
 
 /*--------------------- 1. Global Styles ---------------------*/
-
-.body {
-    background-color: cornflowerblue;
+* {
+    padding: 0;
+    /*Met de padding worden de hoogtes en breedtes van de elementen berekend en inclusief padding en borders*/
+    margin: 0;
+    box-sizing: border-box;
 }
-
-
 
 :root {
     --main-font: Merriweather;
     --main-text-weight: 500;
     --second-font: 'Roboto', sans-serif;
     --second-font-line-height: 20px;
-
     --light-brown: #251009;
     --dark-brown: #150A06;
-    --pink: #FF003D;
+    --button-color: #FF003D var(--button-color);
     --green: #1AE216;
     --light-yellow: #FAF34A;
     --white: #FFFFFF;
@@ -48,18 +47,11 @@
 
     --margin: 2em;
 }
-
 #root {
     display: flex;
     justify-content: center;
 }
 
-* {
-    padding: 0;
-    /*Met de padding worden de hoogtes en breedtes van de elementen berekend en inclusief padding en borders*/
-    margin: 0;
-    box-sizing: border-box;
-}
 
 body {
     font-family: 'Roboto', sans-serif;

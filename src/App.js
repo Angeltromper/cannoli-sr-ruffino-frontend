@@ -1,14 +1,13 @@
 import {Routes, Route, useLocation } from 'react-router-dom';
 import {useLayoutEffect, useState} from 'react';
 import './App.css';
-
-import Nav from "./components/pageItems/nav/Nav";
-import PublicRoute from "./components/pageItems/route/PublicRoute";
 import Homepage from "./pages/homepage/Homepage";
 import Profile from "./pages/profile/Profile";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
+import Header from "./components/pageItems/header/Header";
 import PrivateRoute from "./components/pageItems/route/PrivateRoute";
 import Footer from "./components/pageItems/footer/Footer";
+import UserInfo_Form from "./components/userInfo_Form/UserInfo_Form";
 import Welcome from "./pages/welcome/Welcome";
 import SignIn from "./pages/account/SignIn";
 import SignUp from "./pages/account/SignUp";
@@ -20,7 +19,6 @@ import Giftbox from "./pages/giftbox/Giftbox";
 import Franchise from "./components/franchise/Franchise";
 import Service from "./pages/service/Service";
 import Contact from "./pages/contact/Contact";
-import ApproveCannoli from "./pages/privacy/ApproveCannoli";
 import PrivacyPolicy from "./pages/privacy/PrivacyPolicy";
 import Faq from "/pages/privacy/Faq";
 import FourZeroFour from "./pages/404/FourZeroFour";
@@ -79,8 +77,8 @@ function App() {
                     <Route path="/contact"
                            element={<Contact headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
 
-                    <Route path="/profile"
-                           element={<PrivateRoute><Profile headerImageHandler={setHeaderImage}=pageTitleHandler={setPageTitle}/></PrivateRoute>}/>
+                    <Route path="/profiel/"
+                           element={<PrivateRoute><Profile headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/></PrivateRoute>}/>
 
                     <Route path="/faq/"
                            element={<Faq headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
@@ -94,8 +92,8 @@ function App() {
                     <Route path="/registreren/"
                            element={<SignUp headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
 
-                    <Route path="/cannoli-accepteren/:cannoliId"
-                           element={<PrivateRoute><ApproveCannoli headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/></PrivateRoute>}/>
+                    <Route exact path="/user_Info/"
+                           element={<PrivateRoute><UserInfo_Form headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/></PrivateRoute>}/>
                 </Routes>
                 <Footer/>
             </div>

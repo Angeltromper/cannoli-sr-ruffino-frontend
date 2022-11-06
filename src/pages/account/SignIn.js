@@ -1,0 +1,89 @@
+import React, {useContext, useEffect, useState} from 'react';
+import {Link, useNavigate} from "react-router-dom";
+import {AuthContext} from "../../context/AuthContext";
+import pageImg from "../../../src/assets/img.background/cannoli-background.png";
+import YellowContentBox from "../../components/pageItems/pageDesignElements/yellowContentBox/YellowContentBox";
+import {useForm} from 'react-hook-form';
+import axios from "axios";
+
+function SignIn({headerImageHandler, pageTitleHandler}) {
+    const {login, logout, auth} = useContext(AuthContext);
+    const [addSucces, toggleAddSuccess] = useState(false);
+    const navigate = useNavigate();
+    const {register, formState: {errors}, handleSubmit} = useForm({mode: 'onBlur'});
+    const source = axios.CancelToken.source();
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        headerImageHandler(pageImg);
+        pageTitleHandler("Inloggen");
+    }, []);
+
+    async function signIn(e) {
+
+        try {
+            const response = await axios.post('http://localhost:8080/authenticate', {
+                username: e.username,
+                password: e.password,
+            }, {
+                cancelToken: source.token,
+            });
+            login(response.data.jwt);
+            toggleAddSuccess(true);
+        } catch (error) {
+            console.error('There was an error!', error);
+            setError(true);
+        }
+        ;
+    }
+
+    return (
+        <>
+            <YellowContentBox>
+                {!auth ?
+                    <form onSubmit={handleSubmit(signIn)}>
+
+                        <h3 className="legend">Gegevens</h3>
+                        <label htmlFor="details-username">
+                            Naam:
+                            <Input
+                                type="text"
+                                id="details-username"
+                                {...register("username", {
+                                    required: "Username mag niet leeg zijn.",
+                                })}
+                                placeholder="username"
+
+                            />
+                        </label>
+                        {errors.username && <p>{errors.username.message}</p>}
+                        <br/>
+
+                        <label htmlFor="details-password">
+                            Wachtwoord:
+                            <input
+                                type="password"
+                                id="details-password"
+                                {...register("password", {
+                                    required: "wachtwoord mag niet leeg zijn."
+                                })}
+                                placeholder="wachtwoord"
+                                />
+                        </label>
+                        {errors.password && <p>{errors.password.message}</p>}<br/>
+
+                        <button type="submit">Login</button>
+
+                    </form>
+                    : <button type="button" onClick={logout}>Log uit</button>
+                }
+                {error && "Er ging iets mis, controleer je gegevens en probeer het nog een keer."}
+            </YellowContentBox>
+            <section className="page-content">
+                <p>Heb je nog geen account? <Link to="/registreren" exact> Registreer </Link> je dan eerst. </p>
+            </section>
+        </>
+    );
+}
+
+export default SignIn;

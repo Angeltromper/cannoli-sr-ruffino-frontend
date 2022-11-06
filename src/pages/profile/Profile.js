@@ -6,49 +6,49 @@ import axios from "axios";
 
 
 function Profile({headerImageHandler, pageTitleHandler}) {
-    const [userData, setUserData] = useState();
-    const {user: {username}, logout} = useContext(AuthContext);
-    const [isAdmin, toggleIsAdmin] = useState(false);
-    const [isBrand, toggleIsBrand] = useState(false);
-    const token = localStorage.getItem('token');
-    const [cannoliDeleted, toggleCannoliDeleted] = useState(false);
+    const [userData, setUserData] = useState ();
+    const {user: {username}, logout} = useContext ( AuthContext );
+    const [isAdmin, toggleIsAdmin] = useState (false);
+    const [isBrand, toggleIsBrand] = useState (false);
+    const token = localStorage.getItem ('token');
+    const [cannoliDeleted, toggleCannoliDeleted] = useState (false);
 
-    useEffect(() => {
-        headerImageHandler(pageImg);
-        pageTitleHandler("Profielpagina");
-    }, [headerImageHandler, pageTitleHandler]);
+    useEffect ( () => {
+        headerImageHandler ( pageImg );
+        pageTitleHandler ( "Profielpagina" );
+    }, [headerImageHandler, pageTitleHandler] );
 
-    useEffect(() => {
-        const source = axios.CancelToken.source();
+    useEffect ( () => {
+        const source = axios.CancelToken.source ();
 
         async function getData(id, token) {
             try {
-                const response = await axios.get(`http://localhost:8080/users/${id}`, {
+                const response = await axios.get ( `http://localhost:8080/users/${id}`, {
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": `Bearer ${token}`,
                     }
-                });
-                setUserData(response.data);
-                response.data.authorities.map((userRole) => {
+                } );
+                setUserData ( response.data );
+                response.data.authorities.map ( (userRole) => {
                     if (userRole.authority === "ROLE_ADMIN") {
-                        return toggleIsAdmin(true);
+                        return toggleIsAdmin ( true );
                     }
                     if (userRole.authority === "ROLE_BRAND") {
-                        return toggleIsBrand(true);
+                        return toggleIsBrand ( true );
                     }
-                })
+                } )
             } catch (error) {
-                console.error('There was an error!', error);
+                console.error ( 'There was an error!', error );
             }
         }
 
-        getData(username, token);
+        getData ( username, token );
         return function cleanup() {
-            source.cancel();
+            source.cancel ();
         }
 
-    }, []);
+    }, [] );
 
     async function deleteCannoli(CannoliId) {
         try {
@@ -63,10 +63,10 @@ function Profile({headerImageHandler, pageTitleHandler}) {
         } catch (error) {
             console.error ( "een error met data ophalen", error );
         }
-        toggleCannoliDeleted (!cannoliDeleted);
+        toggleCannoliDeleted ( !cannoliDeleted );
     }
 
-    useEffect(() => {
+    useEffect ( () => {
         async function fetchData() {
             try {
                 const response = await axios.get ( `http://localhost:8080/cannoli/`,
@@ -94,14 +94,14 @@ function Profile({headerImageHandler, pageTitleHandler}) {
 
         fetchData ();
 
-    }, [isAdmin, discDeleted]);
+    }, [isAdmin, discDeleted] );
 
     return (
         <>
             <TextContainer>
                 <p>Welkom op de profielpagina. Je kunt hier al je gegevens bekijken</p>
                 <p>Terug naar de <Link
-                to="/">Homepagina</Link></p>
+                    to="/">Homepagina</Link></p>
             </TextContainer>
             <YellowContentBox>
                 <section>
@@ -113,7 +113,8 @@ function Profile({headerImageHandler, pageTitleHandler}) {
 
             <TextContainer>
                 <h2>Strikt geheime profiel-content</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid cumque dolorum error iure magni molestiae nobis perferendis
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid cumque dolorum error iure magni
+                    molestiae nobis perferendis
                     praesentium sapiente ullam?</p>
 
 
@@ -121,11 +122,20 @@ function Profile({headerImageHandler, pageTitleHandler}) {
             {isAdmin &&
                 <BookmarkBox verticalText="admin">
                     <h2>{Cannolilist && Cannolilist.length} </h2>
+                    <p>Na het inloggen kunt u de inkoopprijs van de cannoli(s) opvragen</p>
+                    <p>Klik op de naam van de cannoli om te zien wat de inkoopprijs is.</p>
+                    <ul>{CannoliList && CannoliList}</ul>
                 </BookmarkBox>
+            }
 
-
-
-
+            <TextContainer>
+                <button type="button" onClick={logout}>Log uit</button>
+            </TextContainer>
         </>
-    )
+    );
+
+}
+
+export default Profile;
+
 

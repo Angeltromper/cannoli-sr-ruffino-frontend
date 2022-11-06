@@ -1,0 +1,30 @@
+
+
+.mainbutton {
+
+background-color: var(--button-color);
+color:
+border: var(--button-border-pixel-color);
+border-radius: var(--button-border-radius);
+width: var(--button-width);
+height: var(--button-height);
+font-size: var(--button-font-size);
+font-weight: var(--button-font-weight);
+font-family: var(--main-font);
+margin-bottom: var(--button-margin-bottom);
+box-shadow: var(--button-shadow);
+}
+
+.mainbutton:disabled {
+    color: var(--text-color-disabled);
+}
+
+.mainbutton:hover {
+    background-color: var(--button-border-color);
+}
+
+@media screen and (max-width: 990px) {
+    .mainbutton {
+        width: var(--button-width-mobile);
+    }
+}

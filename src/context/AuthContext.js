@@ -1,8 +1,9 @@
 import React, { createContext, useEffect, useState} from 'react';
 import {Route} from 'react-router-dom';
 import jwtDecode from "jwt-decode";
-import isTokenValid from "../helpers/isTokenValid";
 import axios from "axios";
+import isTokenValid from "../helpers/isTokenValid";
+import nav from "../components/pageItems/nav/Nav";
 
 export const AuthContext = createContext(null);
 

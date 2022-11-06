@@ -11,3 +11,5 @@ function MainButton({link, onclick, icon, name, type, disable}) {
         </Link>
     )
 }
+
+export default MainButton;
