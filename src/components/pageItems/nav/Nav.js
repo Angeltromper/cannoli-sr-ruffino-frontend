@@ -28,17 +28,17 @@ function Nav() {
 
     return (
         <div className="nav-container">
-        <nav>
-            <ul className={getNavClass(location) + "nav-list"}>
-                <li><NavLink to="/" end className={(navData) => navData.isActive ? "active-link" : "" }>home</NavLink></li>
-                <li><NavLink to="/cannoli" className={(navData) => navData.isActive ? "active-link" : ""}>cannoli</NavLink> </li>
-                <li><NavLink to="/giftbox" className={(navData) => navData.isActive ? "active-link" : ""}>giftbox</NavLink></li>
-                <li><NavLink to="/franchise" className={(navData) => navData.isActive ? "active-link" : "" }>franchise</NavLink></li>
-                <li><NavLink to="/service" className={(navData) => navData.isActive ? "active-link" : "" }>service</NavLink></li>
-                <li><NavLink to="/contact" end className={(navData) => navData.isActive ? "active-link" : "" }>contact</NavLink></li>
-            </ul>
+            <nav>
+                <ul className={getNavClass(location) + "nav-list"}>
+                    <li><NavLink to="/" end className={(navData) => navData.isActive ? "active-link" : "" }>home</NavLink></li>
+                    <li><NavLink to="/cannoli" className={(navData) => navData.isActive ? "active-link" : ""}>cannoli</NavLink> </li>
+                    <li><NavLink to="/giftbox" className={(navData) => navData.isActive ? "active-link" : ""}>giftbox</NavLink></li>
+                    <li><NavLink to="/franchise" className={(navData) => navData.isActive ? "active-link" : "" }>franchise</NavLink></li>
+                    <li><NavLink to="/service" className={(navData) => navData.isActive ? "active-link" : "" }>service</NavLink></li>
+                    <li><NavLink to="/contact" end className={(navData) => navData.isActive ? "active-link" : "" }>contact</NavLink></li>
+                </ul>
 
-        </nav>
+            </nav>
         </div>
     );
 }

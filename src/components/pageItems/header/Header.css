@@ -1,0 +1,179 @@
+
+header {
+    background: var(--dark-brown);
+    /*Voor verouderde browsers die geen gradients ondersteunen. Bij deze valt de browser terug op de "effen" achtergrondkleur hierboven*/
+    background: linear-gradient(129deg, var(--dark-brown) 0%, var(--dark-brown) 30%, var(--light-brown) 100%);
+    color: var(--white);
+    padding: 50px 0;
+    position: relative;
+}
+
+header::before {
+    content: '';
+    display: block;
+    width: 4.8em;
+    height: 6em;
+    position: absolute;
+    margin-bottom: 1.2rem;
+}
+
+header::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-position: top center;
+    background-size: auto;
+}
+
+header button, header button:visited {
+    background-color: var(--pink);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    margin: var(--margin);
+    border: var(--border);
+    border-radius: 50px;
+    box-shadow: var(--dropshadow);
+    padding: 1.2em 2.2em;
+}
+
+header button:hover {
+    cursor: pointer;
+}
+
+header button:active {
+    transform: translateY(0.4em);
+    color: var(--black);
+    box-shadow: 0.2em 0.2em 0 var(--black);
+}
+
+header button:hover .btn-text {
+    display: flex;
+}
+
+header .btn-text::after {
+    margin-left: 0.2em;
+    content: "→";
+    transform: translateX(0.3em);
+}
+
+header.logo{
+    width: 10em;
+    padding: 1em;
+    transform: rotate(-1.3deg);
+}
+
+.header-img-container {
+    top: -12px;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-img {
+    width: 100%;
+    min-height: 5rem;
+    background-color: var(--dark-brown);
+}
+
+/*-------------------Header-nav----------------------*/
+
+
+.header-content__navigation {
+    display: flex;
+    flex-direction: row;
+    /*De <ul> die in de <nav> zit, wordt rechts (einde van de rij) uitgelijnd */
+    justify-content: flex-end;
+    /*De <nav> moet de beschikbare breedte van de pagina aannemen, anders valt er niks uit te lijnen aan de rechterkant */
+    width: 100%;
+}
+
+
+
+.nav-container {
+    background-color: var(--dark-brown);
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--pink);
+    list-style: none;
+    padding: 1em;
+    width: 100%;
+    position: relative;
+    left: -5%;
+    top: -0.5rem;
+    box-shadow: var(--dropshadow);
+    border: var(--border);
+    z-index: 1;
+    font-size: 1rem;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-timing-function: ease;
+    animation-duration: .6s;
+}
+
+.nav-home {
+    animation-name: animateLeftSideDow;
+    transform: rotate(-1.2deg);
+}
+
+@keyframes animateLeftSideDown {
+    50% {transform: rotate(-2.2deg);}
+}
+
+.nav-cannoli {
+    animation-name: animateLeftSideDownLight;
+    transform: rotate(-1.2deg);
+}
+
+@keyframes animateLeftSideDownLight {
+    50% {transform: rotate(-1.8deg);}
+}
+
+.nav-giftbox {
+    animation-name: animateRightSideDownLight;
+    transform: rotate(1.2deg);
+}
+
+@keyframes animateRightSideDownLight {
+    50% {transform: rotate(1.8deg);}
+}
+
+.nav-franchise {
+    animation-name: animateRightSideDown;
+    transform: rotate(1.2deg);
+}
+
+@keyframes animateRightSideDown {
+    50% {transform: rotate(1.8deg);}
+}
+
+.nav-service {
+    animation-name: animateRightSideDownLight;
+    transform: rotate(-1.2deg);
+}
+
+@keyframes animateRightSideDownLight {
+    50% {
+        transform: rotate(1.8deg);}
+}
+
+.nav-contact {
+    animation-name: animateRightSideDown
+}
+
+@keyframes animateRightSideDown {
+    50% {transform: rotate(2.2deg);}
+}
+

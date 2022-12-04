@@ -1,19 +1,19 @@
 import React, { createContext, useEffect, useState} from 'react';
-import {Route} from 'react-router-dom';
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import isTokenValid from "../helpers/isTokenValid";
-import nav from "../components/pageItems/nav/Nav";
+import {useNavigate} from "react-router-dom";
 
-export const AuthContext = createContext(null);
+
+export const AuthContext = createContext({});
 
 function AuthContextProvider({ children }) {
     const [auth, toggleIsAuth] = useState ({
         isAuth: false,
         user: null,
-        status: 'pending',
+        status:'pending',
     });
-    let navigate = Route ();
+    let navigate = useNavigate();
 
 
     useEffect (() => {

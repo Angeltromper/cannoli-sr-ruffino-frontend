@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../../assets/img.background/cannoli-background.png';
 import Nav from "./../nav/Nav";
-import "./Header-module.css";
+import "./Header.css";
 import {useNavigate, Link} from 'react-router-dom';
 
 function Header({headerImg, pageTitle}) {
@@ -13,7 +13,7 @@ function Header({headerImg, pageTitle}) {
     }
 
     return (
-        <>
+       <div>
             <header className="header">
                 <div className="logo">
                     <Link to="/"><figure><img src={logo} alt="logo" className="logo"/></figure></Link>
@@ -30,10 +30,6 @@ function Header({headerImg, pageTitle}) {
             <div className="page-title">
                 <h1>{pageTitle}</h1>
             </div>
-
-            </div>
-        </>
-    )
 }
 
 

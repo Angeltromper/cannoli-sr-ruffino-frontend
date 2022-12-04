@@ -1,6 +1,6 @@
 import React, {useContext,useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import pageImg from "../../../src/assets/img.background/cannoli-background.png/";
+import pageImg from "./Profile";
 import {AuthContext} from "../../context/AuthContext";
 import axios from "axios";
 
@@ -97,19 +97,19 @@ function Profile({headerImageHandler, pageTitleHandler}) {
     }, [isAdmin, discDeleted] );
 
     return (
-        <>
+        <div>
             <TextContainer>
                 <p>Welkom op de profielpagina. Je kunt hier al je gegevens bekijken</p>
                 <p>Terug naar de <Link
                     to="/">Homepagina</Link></p>
             </TextContainer>
-            <YellowContentBox>
-                <section>
-                    <h2>Jouw gegevens</h2>
-                    <p><strong>Gebruikersnaam:</strong> {username}</p>
-                    <p><strong>Email:</strong> {userData && userData.emailAdress}</p>
-                </section>
-            </YellowContentBox>
+
+            <section>
+                <h2>Jouw gegevens</h2>
+                <p><strong>Gebruikersnaam:</strong> {username}</p>
+                <p><strong>Email:</strong> {userData && userData.emailAdress}</p>
+            </section>
+
 
             <TextContainer>
                 <h2>Strikt geheime profiel-content</h2>
@@ -131,7 +131,7 @@ function Profile({headerImageHandler, pageTitleHandler}) {
             <TextContainer>
                 <button type="button" onClick={logout}>Log uit</button>
             </TextContainer>
-        </>
+        </div>
     );
 
 }
