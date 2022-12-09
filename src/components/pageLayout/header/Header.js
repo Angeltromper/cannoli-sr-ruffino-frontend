@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from '../../../assets/img.background/cannoli-background.png';
-import Nav from "./../nav/Nav";
-import "./Header.css";
+import Nav from "../nav/Nav";
 import {useNavigate, Link} from 'react-router-dom';
+import "./Header.css";
 
-function Header({headerImg, pageTitle}) {
+function Header({headerImage, pageTitle}) {
     const history = useNavigate();
 
     const toLink = (e) => {
@@ -13,11 +13,12 @@ function Header({headerImg, pageTitle}) {
     }
 
     return (
-       <div>
+        <main>
             <header className="header">
                 <div className="logo">
                     <Link to="/"><figure><img src={logo} alt="logo" className="logo"/></figure></Link>
                 </div>
+
                 <div className="Buttons">
                     <button type="button" onClick={toLink}><span className="button-text">Inloggen</span></button>
                 </div>
@@ -27,9 +28,12 @@ function Header({headerImg, pageTitle}) {
                 <figure>
                     <img src={headerImage} className="header-img"/>
                 </figure>
-            <div className="page-title">
-                <h1>{pageTitle}</h1>
+                <div className="page-title">
+                    <h1>{pageTitle}</h1>
+                </div>
             </div>
+        </main>
+    );
 }
 
 

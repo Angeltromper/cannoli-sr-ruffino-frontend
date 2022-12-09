@@ -1,10 +1,13 @@
 import React from 'react';
 import {NavLink, useLocation} from "react-router-dom";
-
+import "./Nav.css"
 
 function Nav() {
-    let location = useLocation().pathname;
+
+    const location=useLocation().pathname;
     console.log(location);
+
+
 
     function getNavClass(location) {
         switch (location) {

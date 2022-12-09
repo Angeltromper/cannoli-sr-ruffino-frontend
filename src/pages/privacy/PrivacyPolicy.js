@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import pageImg from "../../assets/img.background/cannoli-background.png";
-import TextContainer from "../../components/pageItems/pageDesignElements/textContainer/TextContainer";
+import TextContainer from "../../components/pageLayout/container/textContainer/TextContainer";
 
 function PrivacyPolicy({headerImageHandler,pageTitleHandler}) {
     useEffect(() => {

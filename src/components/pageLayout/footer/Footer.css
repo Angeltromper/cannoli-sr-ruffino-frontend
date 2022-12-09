@@ -58,3 +58,21 @@
     transform: rotate(-1.3deg);
 }
 
+.color-figure {
+    display: revert;
+}
+
+.color-figure div{
+    width: 2em;
+    height: 4em;
+    margin: 6px;
+}
+
+.footer-color-pink {
+    background-color: var(--pink);
+}
+
+.footer-color-green {
+    background-color: var(--green);
+}
+

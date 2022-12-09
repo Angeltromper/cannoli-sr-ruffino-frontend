@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import pageImg from "../../../src/assets/img.background/cannoli-background.png";
-import TextContainer from "../../components/pageItems/pageDesignElements/textContainer/TextContainer";
+import TextContainer from "../../components/pageLayout/container/textContainer/TextContainer";
 
 
 function HomePage({headerImageHandler, pageTitleHandler}) {

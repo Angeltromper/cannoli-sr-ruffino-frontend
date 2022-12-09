@@ -1,7 +1,9 @@
+/*
 import React, {useContext, useEffect, useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
 import pageImg from "../../../src/assets/img.background/cannoli-background.png";
+import BrownContentBox  from "../../components/pageLayout/boxElements/browncontentbox/BrownContentBox";
 import {useForm} from 'react-hook-form';
 import axios from "axios";
 
@@ -37,11 +39,8 @@ function SignIn({headerImageHandler, pageTitleHandler}) {
     }
 
     return (
-            <main className="fullpage-container">
-                <section className="left-section-container">
-                    <figure className="CocktailCard-container">
-                        {formError ? (<CannoliLoaderOops/>) : (<CannoliCardLogo/>)}
-                    </figure>
+        <>
+            <BrownContentBox>
                 {!auth ?
                     <form onSubmit={handleSubmit(signIn)}>
 
@@ -70,7 +69,7 @@ function SignIn({headerImageHandler, pageTitleHandler}) {
                                     required: "wachtwoord mag niet leeg zijn."
                                 })}
                                 placeholder="wachtwoord"
-                                />
+                            />
                         </label>
                         {errors.password && <p>{errors.password.message}</p>}<br/>
 
@@ -80,12 +79,13 @@ function SignIn({headerImageHandler, pageTitleHandler}) {
                     : <button type="button" onClick={logout}>Log uit</button>
                 }
                 {error && "Er ging iets mis, controleer je gegevens en probeer het nog een keer."}
-                    <d
-
-
-                </main>
-
-    )
+            </BrownContentBox>
+            <section className="page-content">
+                <p>Heb je nog geen account? <Link to="/registreren" exact>Registreren</Link> je dan eerst.</p>
+            </section>
+        </>
+    );
 }
 
 export default SignIn;
+*/

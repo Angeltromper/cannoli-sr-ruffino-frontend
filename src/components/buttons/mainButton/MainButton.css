@@ -1,10 +1,8 @@
 
 
-.mainbutton {
+.MainButton {
 
 background-color: var(--button-color);
-color:
-border: var(--button-border-pixel-color);
 border-radius: var(--button-border-radius);
 width: var(--button-width);
 height: var(--button-height);
@@ -15,16 +13,16 @@ margin-bottom: var(--button-margin-bottom);
 box-shadow: var(--button-shadow);
 }
 
-.mainbutton:disabled {
+.MainButton:disabled {
     color: var(--text-color-disabled);
 }
 
-.mainbutton:hover {
+.MainButton:hover {
     background-color: var(--button-border-color);
 }
 
 @media screen and (max-width: 990px) {
-    .mainbutton {
+    .MainButton {
         width: var(--button-width-mobile);
     }
 }

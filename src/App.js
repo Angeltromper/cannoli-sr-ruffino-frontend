@@ -1,15 +1,16 @@
-import {Routes, Route, useLocation, Switch} from 'react-router-dom';
-import {useLayoutEffect, useState} from 'react';
+import React, {useLayoutEffect, useState} from "react";
+import {Routes, Route, useLocation} from "react-router-dom";
 import './App.css';
-import headerImg from '../../cannoli-sr-ruffino-frontend/src/assets/header/cannoli-background.png'
 import Homepage from "./pages/homepage/Homepage";
+import headerImg
+    from '../../cannoli-sr-ruffino-frontend/src/assets/img.background/cannoli-background.png'
 import Profile from "./pages/profile/Profile";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
-import Header from "./components/pageItems/header/Header";
-import PrivateRoute from "./components/pageItems/route/PrivateRoute";
+import Header from "./components/pageLayout/header/Header";
+import PrivateRoute from "./components/pageLayout/route/PrivateRoute";
 import UserInfo_Form from "./components/form/userInfo_Form/UserInfo_Form";
 import {Cart} from "./components/cart/Cart";
-import Footer from "./components/pageItems/footer/Footer";
+import Footer from "./components/pageLayout/footer/Footer";
 import Welcome from "./pages/welcome/Welcome";
 import SignIn from "./pages/signIn/SignIn";
 import SignUp from "./pages/signUp/SignUp";
@@ -27,12 +28,11 @@ import OrderList from "./components/orderList/OrderList";
 import Service from "./pages/service/Service";
 import Contact from "./pages/contact/Contact";
 import PrivacyPolicy from "./pages/privacy/PrivacyPolicy";
-import Faq from "/pages/privacy/Faq";
 import FourZeroFour from "./pages/404/FourZeroFour";
 
 
-function App() {
 
+function App() {
     const [headerImage, setHeaderImage] = useState(headerImg);
     const [pageTitle, setPageTitle] = useState("Cannoli-sr-ruffino");
 
@@ -44,11 +44,8 @@ function App() {
         return children
     }
 
+
     return (
-
-
-
-
         <Wrapper>
             <div className="page-container">
                 <Header headerImg={headerImage} pageTitle={pageTitle}/>
@@ -99,9 +96,6 @@ function App() {
                     <Route path="/profile/"
                                element={<PrivateRoute><Profile headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/></PrivateRoute>}/>
 
-                    <Route path="/faq/"
-                               element={<Faq headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
-
                     <Route path="privacy-policy/"
                                element={<PrivacyPolicy headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
 
@@ -126,9 +120,9 @@ function App() {
                     <Route exact path="/users/:user_id"
                                element={<PrivateRoute><UserInfo_Form headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/></PrivateRoute>}/>
                 </Routes>
-                <Footer/>
+                    <Footer/>
             </div>
-        </Wrapper>
+            </Wrapper>
     );
 }
 

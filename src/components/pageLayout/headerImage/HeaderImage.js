@@ -1,4 +1,5 @@
 import React from 'react';
+
  function HeaderImage({headerImage, pageTitle}) {
      return (
          <div className="header-img-container">
@@ -12,4 +13,4 @@ import React from 'react';
      );
  }
 
- export default HeaderImage
+ export default HeaderImage;

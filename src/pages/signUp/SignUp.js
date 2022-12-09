@@ -1,11 +1,11 @@
+/*
 import React, {useEffect, useState} from 'react';
 import pageImg from "../../../src/assets/img.background/cannoli-background.png";
-import TextContainer from "../../components/pageItems/pageDesignElements/textContainer/TextContainer";
+import TextContainer from "../../components/pageLayout/container/textContainer/TextContainer";
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import {useContext} from "@types/react";
-import {AuthContext} from "../../context/AuthContext";
+
 
 function SignUp({headerImageHandler, pageTitleHandler}) {
     const [addSucces, toggleAddSuccess] = useState(false);
@@ -49,7 +49,7 @@ function SignUp({headerImageHandler, pageTitleHandler}) {
                     deserunt distinctio ea eaque eum ex excepturi facere neque obcaecati odit perferendis ratione
                     reiciendis repudiandae sapiente sint, suscipit voluptas voluptatum!</p>
             </TextContainer>
-            <YellowContentBox>
+            <BrownContentBox>
                 {addSucces === true && <p>Gebruiker is toegevoegd!</p>}
                 <form onSubmit={handleSubmit(addUser)}>
                     <h3 className="legend">Vul je gegevens in om te registreren</h3>
@@ -128,9 +128,10 @@ function SignUp({headerImageHandler, pageTitleHandler}) {
                     </button>
                 </form>
                 {error && "Er ging iets mis, probeer het later opnieuw."}
-            </YellowContentBox>
+            </BrownContentBox>
         </>
     );
 }
 
 export default SignUp;
+*/
