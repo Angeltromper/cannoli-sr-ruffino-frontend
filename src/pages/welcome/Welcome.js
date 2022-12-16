@@ -3,6 +3,7 @@ import {useCannoliContext} from "../../context/CannoliContext";
 import MainButton from "../../components/buttons/mainButton/MainButton";
 import HelpButton from "../../components/buttons/helpButton/HelpButton";
 import profile from '../../assets/navIcon/profile.png';
+import styles from './Welcome.module.css';
 
 function Welcome() {
     const {setPageTitle} = useCannoliContext();
@@ -15,38 +16,12 @@ function Welcome() {
     return (
 
         <main className= "outer-content-container">
-            <section className='right-section-container'>
                 <article className="button-container">
                     <div>
                         <HelpButton content={0}/>
                     </div>
-                    <MainButton
-                        name="Home"
-                        link={"/home"}/>
-                    <MainButton
-                        name="Cannoli"
-                        link={"/cannoli"}/>
-                    <MainButton
-                        name="Giftbox"
-                        link={"/giftbox"}/>
-                    <MainButton
-                        name="Franchise"
-                        link={"/franchise"}/>
-                    <MainButton
-                        name="Service"
-                        link={"/service"}/>
-                    <MainButton
-                        name="Contact"
-                        link={"/contact"}/>
-                    <MainButton
-                        name="Profile"
-                        icon={profile}
-                        link={"/profile"}/>
-                    <MainButton
-                        name="Search"
-                        icon={"/search"}/>
+
                 </article>
-            </section>
         </main>
     )
 }

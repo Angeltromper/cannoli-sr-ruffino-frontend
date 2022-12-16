@@ -1,5 +1,5 @@
 import {useHistory} from "react-router-dom";
-import './MainBackButton-module.css';
+import './MainBackButton.module.css';
 
 function MainBackButton() {
     const history = useHistory();

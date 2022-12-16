@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto:wght@300;400;700&display=swap');
+
+/*////////////////////
+    Table of Contents
+    1.  Global Styles
+    2.  Typography
+    3.  Layout
+    4.  Scrollbar
+    5.  Header
+    5.1 Header-Image
+    5.2 Header-Navigation
+    6.  Button
+    7.  Service
+    8.  Contact
+    9.  Footer
+    10. Media Queries
+
+
+////////////////////*/
+
+/*--------------------- 1. Global Styles ---------------------*/
+* {
+    padding: 0;
+    /*Met de padding worden de hoogtes en breedtes van de elementen berekend en inclusief padding en borders*/
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-font: Merriweather;
+    --main-text-weight: 500;
+    --second-font: 'Roboto', sans-serif;
+    --second-font-line-height: 20px;
+
+    --light-brown: #251009;
+    --dark-brown: #150A06;
+    --pink: #FF003D;
+    --green: #1AE216;
+    --light-yellow: #FAF34A;
+    --white: #FFFFFF;
+    --black: #010101;
+
+    --text-logo: #CEA71E;
+    --text-color-error: #F40000;
+    --text: #7A7A7A;
+    --text-faded: #f2f0ff;
+    --text-dark: #0c0c0c;
+    --dropshadow: 0.4em 0.4em 0 var(--black);
+    --margin: 2em;
+    --border: 0.2em solid var(--black);
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    background: var(--white)
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*---------------------2.Typography---------------------*/
+
+.page-title h1 {
+    font-size: 2.8rem;
+    margin: 0.1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Merriweather, 'Times New Roman', serif;
+    letter-spacing: 0.02em;
+}
+
+h2 {
+    font-size: 2.1rem;
+    /*2.1rem = 35px* uitgaand van standaard 16pixel*/
+}
+
+h3 {
+    font-size: 2.0em;
+    margin-bottom: 0.3rem;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 1.25em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 1rem;
+}
+
+/*---------------------3.Lay-out ---------------------*/
+
+/* De buitenste container is altijd de volledige schermbreedte. Een flexibel container met de inhoud horizontaal gecentreerd*/
+
+.outer-content-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/*De binnenste container is maximaal 1400px breed, zodat deze ook op bredere schermen er goed blijft uitzien.*/
+/*De binnenste container mag krimpen als het scherm minder breed wordt, maar mag niet groeien als er meer ruimte is.*/
+.inner-content-container {
+    flex-basis: 1400px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    /* Aan de linker en rechterkant voegen we margin toe, zodat de content nooit helemaal tegen de rand gedrukt kan worden*/
+    margin: 0 20px;
+    /*Deze flex-item is ook een flexbox container, hier komen alle children onder elkaar te staan*/
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+
+
+.cannoliCard-container {
+    padding-top: 100px;
+}
+
+.skewer--bottom {
+    border-bottom: 100px solid white;
+    border-right: 25vw solid transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.skewer--top {
+    border-top: 100px solid white;
+    border-left: 25vw solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0
+}
+
+/*We gebruiken hier geen flex-basis property, omdat dit element soms in een parent met column-richting en soms in een parent met row-richting kan staan.
+In een column gaat flex-basis over de hoogte en niet de breedte. Om alsnog de breedte te veranderen, hebben we max-width (nooit groter dan dit) property nodig*/
+.default-text-restrictor {
+    max-width: 850px;
+    text-align: center;
+}
+
+.default-area-padding {
+    padding: 200px 0 100px 0;
+}
+
+/*--------------------- 4.Scrollbar ---------------------*/
+
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: none;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 3px solid var(--white);
+}
+
+.list-title {
+    width: 400px;
+    text-align: center;
+}
+
+.CannoliList {
+    font-family: var(--second-font);
+    height: 648px;
+}
+
+/*--------------------- 5 Introduction ---------------------*/
+
+#intro {
+    background-color: white;
+    color: var(--black);
+    position: relative;
+}
+
+/*Dit zijn de zwevende letters achter de content*/
+#intro::before {
+    display: block;
+    content: 'welkom';
+    color: var(--text-faded);
+}
+
+.page-content {
+    margin: 4ch;
+    position: relative;
+}
+
+
+
+/*--------------------- Media Queries ---------------------*/
+
+/*Omdat hier maar zo weinig media-queries nodig zijn is er gebruik gemaakt van een max-width query.*/
+/*Normaliter maak je altijd gebruik van min-width queries, waarbij de versie voor mobiel buiten de query staat, */
+/*en de versie voor desktop juist BUITEN de query*/
+
+/*MOBILE RESPONSIVE*/
+@media screen and (max-width:600px) {
+
+    .outer-content-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+    .cannoliCard-container {
+        padding-top: 20px;
+    }
+
+    .scrollbar {
+        max-height: 220px;
+    }
+
+    .list-title {
+        width: 340px;
+    }
+
+    .cannolilist {
+        height: 420px;
+    }
+
+button,header button:visited {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background-color: var(--pink);
+    margin: var(--margin);
+    border: var(--border);
+    border-radius: 50px;
+    box-shadow: var(--dropshadow);
+    padding: 1.2em 2.2em;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: translateY(0.1em);
+    box-shadow: 0.3em 0.3em 0 var(--black);
+}
+
+button:active {
+    transform: translate(0.4em);
+    color: var(--white);
+    box-shadow: 0.1em 0.1em 0 var(--black);
+}
+
+.btn-text::after {
+    margin-left: 0.2em;
+    content: "→";
+}
+
+.bigFont {
+    font-size: 8rem;
+}
+
+.image-preview {
+    width: 100px;
+}
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import './MainButton.css';
+import './MainButton.module.css';
 
 function MainButton({link, onclick, icon, name, type, disable}) {
     return (

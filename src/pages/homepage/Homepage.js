@@ -1,12 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import pageImg from "../../../src/assets/img.background/cannoli-background.png";
-import TextContainer from "../../components/pageLayout/container/textContainer/TextContainer";
+import React, {useEffect, useState} from 'react'
+import styles from './Homepage.module.css';
+import * as PropTypes from "prop-types";
 
+function TextContainer(props) {
+    return null;
+}
+
+TextContainer.propTypes = {children: PropTypes.node};
 
 function HomePage({headerImageHandler, pageTitleHandler}) {
 
     useEffect(() => {
-        headerImageHandler(pageImg);
         pageTitleHandler("Heerlijk moment genieten");
     }, []);
 

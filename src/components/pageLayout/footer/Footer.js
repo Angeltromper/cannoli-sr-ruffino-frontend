@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {AuthContext} from "../../../context/AuthContext";
 import Email from "../../../assets/mediaIcon/Email.png";
 import Phone from "../../../assets/mediaIcon/Phone.png";
-import "./Footer.css";
+import "./Footer.module.css";
 
 
 function Footer() {

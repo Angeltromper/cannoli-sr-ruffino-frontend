@@ -1,6 +1,8 @@
 import React, {useLayoutEffect, useState} from "react";
 import {Routes, Route, useLocation} from "react-router-dom";
-import './App.css';
+import Dropdown from './components/dropdown/Dropdown';
+import {Element} from './components/pageLayout/element/Element';
+import styles from './App.module.css';
 import Homepage from "./pages/homepage/Homepage";
 import headerImg
     from '../../cannoli-sr-ruffino-frontend/src/assets/img.background/cannoli-background.png'
@@ -49,6 +51,8 @@ function App() {
         <Wrapper>
             <div className="page-container">
                 <Header headerImg={headerImage} pageTitle={pageTitle}/>
+                <Dropdown/>
+                <Element/>
 
                 <Routes>
                     <Route path="/*"
@@ -122,7 +126,7 @@ function App() {
                 </Routes>
                     <Footer/>
             </div>
-            </Wrapper>
+        </Wrapper>
     );
 }
 
