@@ -17,6 +17,7 @@
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.32.2",
     "react-router-dom": "^6.3.0",
+    "react-toastify": "^9.1.1",
     "typekit": "^0.1.1",
     "web-vitals": "^2.1.4"
   },
