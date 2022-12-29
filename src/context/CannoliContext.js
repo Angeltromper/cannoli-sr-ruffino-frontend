@@ -6,7 +6,7 @@ export function useCannoliContext() {
     return useContext(cannoliContext);
 }
 
-export default function CannoliContextProvider({children}) {
+function CannoliContextProvider({children}) {
     const [cannoli, setCannoli] = useState('');
     const [cannoliList, setCannoliList] = useState([]);
     const [giftbox, setGiftbox] = useState([]);
@@ -68,3 +68,5 @@ const data = {
         </cannoliContext.Provider>
     );
 }
+
+export default CannoliContextProvider;

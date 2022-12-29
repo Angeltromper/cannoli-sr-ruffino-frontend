@@ -8,5 +8,3 @@ function NavPageTitle() {
         <h1 className="mobile-title">{pageTitle}</h1>
     )
 }
-
-export default NavPageTitle;

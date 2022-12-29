@@ -1,4 +1,3 @@
-/*
 import React, {useContext, useEffect, useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
@@ -88,4 +87,3 @@ function SignIn({headerImageHandler, pageTitleHandler}) {
 }
 
 export default SignIn;
-*/

@@ -13,11 +13,12 @@ root.render(
   <React.StrictMode>
       <Router>
           <AuthContextProvider>
-              <App />
+              <CannoliContextProvider>
+                  <App/>
+              </CannoliContextProvider>
           </AuthContextProvider>
       </Router>
-
   </React.StrictMode>
-);
 
+);
 reportWebVitals();

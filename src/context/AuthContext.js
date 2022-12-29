@@ -1,11 +1,10 @@
 import React, { createContext, useEffect, useState} from 'react';
-import jwtDecode from "jwt-decode";
 import axios from "axios";
 import isTokenValid from "../helpers/isTokenValid";
 import {useNavigate} from "react-router-dom";
+import jwtDecode from "jwt-decode";
 
-
-export const AuthContext = createContext({});
+export const AuthContext = createContext(false);
 
 function AuthContextProvider({ children }) {
     const [auth, toggleIsAuth] = useState ({
@@ -15,10 +14,9 @@ function AuthContextProvider({ children }) {
     });
     let navigate = useNavigate();
 
-
+    // is er een token? En zo ja, is deze nog geldig?
     useEffect (() => {
-        // is er een token? En zo ja, is deze nog geldig?
-        const token = localStorage.getItem ( 'token' );
+        const token = localStorage.getItem ('token');
 
         if (token && isTokenValid ( token )) {
             const decodedToken = jwtDecode ( token );

@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react'
 import styles from './Homepage.module.css';
 import * as PropTypes from "prop-types";
 
-function TextContainer(props) {
+function TextContainer() {
     return null;
 }
 
 TextContainer.propTypes = {children: PropTypes.node};
 
-function HomePage({headerImageHandler, pageTitleHandler}) {
+function HomePage({pageTitleHandler}) {
 
     useEffect(() => {
         pageTitleHandler("Heerlijk moment genieten");
