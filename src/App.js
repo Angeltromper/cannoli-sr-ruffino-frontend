@@ -1,11 +1,11 @@
-import React, {useLayoutEffect, useState} from "react";
+import React from 'react';
 import {Routes, Route, useLocation} from "react-router-dom";
-import Dropdown from './components/dropdown/Dropdown';
-import {Element} from './components/pageLayout/element/Element';
-import styles from './App.module.css';
+import {useLayoutEffect,useState} from 'react';
+import Tile from "./components/tile/Tile";
+import Button from "./components/button/Button";
 import Homepage from "./pages/homepage/Homepage";
-import headerImg
-    from '../../cannoli-sr-ruffino-frontend/src/assets/img.background/cannoli-background.png'
+import backgroundImg
+from '../../cannoli-sr-ruffino-frontend/src/assets/img.background/cannoli-background.png';
 import Profile from "./pages/profile/Profile";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import Header from "./components/pageLayout/header/Header";
@@ -13,7 +13,6 @@ import PrivateRoute from "./components/pageLayout/route/PrivateRoute";
 import UserInfo_Form from "./components/form/userInfo_Form/UserInfo_Form";
 import {Cart} from "./components/cart/Cart";
 import Footer from "./components/pageLayout/footer/Footer";
-import Welcome from "./pages/welcome/Welcome";
 import SignIn from "./pages/signIn/SignIn";
 import SignUp from "./pages/signUp/SignUp";
 import SearchCannoli from "./pages/searchCannoli/SearchCannoli";
@@ -31,11 +30,11 @@ import Service from "./pages/service/Service";
 import Contact from "./pages/contact/Contact";
 import PrivacyPolicy from "./pages/privacy/PrivacyPolicy";
 import FourZeroFour from "./pages/404/FourZeroFour";
-
-
+import Elements from "./pages/elements/Elements";
+import './App.css';
 
 function App() {
-    const [headerImage, setHeaderImage] = useState(headerImg);
+    const [headerImage, setHeaderImage] = useState(backgroundImg);
     const [pageTitle, setPageTitle] = useState("Cannoli-sr-ruffino");
 
     const Wrapper = ({children}) => {
@@ -51,8 +50,6 @@ function App() {
         <Wrapper>
             <div className="page-container">
                 <Header headerImg={headerImage} pageTitle={pageTitle}/>
-                <Dropdown/>
-                <Element/>
 
                 <Routes>
                     <Route path="/*"
@@ -61,8 +58,8 @@ function App() {
                     <Route path="/forgotPassword"
                                element={<ForgotPassword headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
 
-                    <Route path="/welcome"
-                               element={<Welcome headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+                    <Route path="/button"
+                           element={<Button headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
 
                     <Route path="/searchCannoli"
                                element={<SearchCannoli headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
@@ -108,6 +105,9 @@ function App() {
 
                     <Route path="/registreren/"
                                element={<SignUp headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
+
+                    <Route path="/design elements/"
+                           element={<Elements headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>
 
                     <Route path="/404/"
                                element={<FourZeroFour headerImageHandler={setHeaderImage} pageTitleHandler={setPageTitle}/>}/>

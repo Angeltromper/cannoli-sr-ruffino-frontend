@@ -1,0 +1,14 @@
+.bookmark-container {
+    background-color: var(--white);
+    box-shadow: var(--dropshadow);
+    border: var(--border);
+    margin-top: var(--margin);
+    position: relative;
+    width: 100%;
+    padding: 2em;
+    top: var(--minusTop);
+    left: -5%;
+    min-height: 6rem;
+    display: inline-block;
+}
+

@@ -1,16 +1,17 @@
-/*
 import React, {useContext,useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import pageImg from "./Profile";
+import TextContainer from "../../components/pageLayout/designElement/container/textContainer/TextContainer";
 import {AuthContext} from "../../context/AuthContext";
+import BookmarkBox from "../../components/pageLayout/designElement/box/bookmarkBox/BookmarkBox";
 import axios from "axios";
-
 
 function Profile({headerImageHandler, pageTitleHandler}) {
     const [userData, setUserData] = useState ();
     const {user: {username}, logout} = useContext ( AuthContext );
     const [isAdmin, toggleIsAdmin] = useState (false);
-    const [isBrand, toggleIsBrand] = useState (false);
+    const [isKind, toggleIsKind] = useState(false);
+    const [pendingCannoliList, setPendingCannoliList] = useState();
     const token = localStorage.getItem ('token');
     const [cannoliDeleted, toggleCannoliDeleted] = useState (false);
 
@@ -35,9 +36,7 @@ function Profile({headerImageHandler, pageTitleHandler}) {
                     if (userRole.authority === "ROLE_ADMIN") {
                         return toggleIsAdmin ( true );
                     }
-                    if (userRole.authority === "ROLE_BRAND") {
-                        return toggleIsBrand ( true );
-                    }
+
                 } )
             } catch (error) {
                 console.error ( 'There was an error!', error );
@@ -46,14 +45,14 @@ function Profile({headerImageHandler, pageTitleHandler}) {
 
         getData ( username, token );
         return function cleanup() {
-            source.cancel ();
+            source.cancel();
         }
 
-    }, [] );
+    }, []);
 
     async function deleteCannoli(CannoliId) {
         try {
-            const response = await axios.delete ( `http://localhost:8080/cannoli/delete/${cannoliId}`,
+            const response = await axios.delete(`http://localhost:8080/pendingcannoli/delete/${CannoliId}`,
                 {
                     headers: {
                         "Content-Type": "application/json",
@@ -70,17 +69,17 @@ function Profile({headerImageHandler, pageTitleHandler}) {
     useEffect ( () => {
         async function fetchData() {
             try {
-                const response = await axios.get ( `http://localhost:8080/cannoli/`,
+                const response = await axios.get (`http://localhost:8080/cannoli/`,
                     {
                         headers: {
                             "Content-Type": "application/json",
                             "Authorization": `Bearer ${token}`,
                         }
-                    } );
-                setCannoliList ( response.data.map ( (cannoli) => {
+                    });
+                setPendingCannoliList ( response.data.map((cannoli) => {
                         return <li key={cannoli.id}>
-                            <Link to={'/cannoli-accepteren/${cannoli.id}'}>{cannoli.brand}
-                                <strong>{cannoli.name}</strong> - {cannoli.ingredient}
+                            <Link to={`/cannoli-accepteren/${cannoli.id}`}>{cannoli.kind}
+                                <strong> {cannoli.name} </strong> -
                             </Link>
                             ({cannoli.createdDate})
                             <button className="delete-btn" onClick={() => deleteCannoli ( cannoli.id )}>Delete
@@ -95,7 +94,7 @@ function Profile({headerImageHandler, pageTitleHandler}) {
 
         fetchData ();
 
-    }, [isAdmin, discDeleted] );
+    }, [isAdmin, cannoliDeleted] );
 
     return (
         <div>
@@ -117,15 +116,23 @@ function Profile({headerImageHandler, pageTitleHandler}) {
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid cumque dolorum error iure magni
                     molestiae nobis perferendis
                     praesentium sapiente ullam?</p>
-
-
             </TextContainer>
+
+            {isKind &&
+                <BookmarkBox verticalText="Soort">
+                    <h2>Nieuwe cannoli smaken</h2>
+                    <p>Updates voor nieuwe cannoli smaken</p>
+                    <Link to="/cannoli-toevoegen" className="highlighter">Nieuwe cannoli smaken</Link>
+                    <ul>{pendingCannoliList && pendingCannoliList}</ul>
+                </BookmarkBox>
+            }
+
             {isAdmin &&
                 <BookmarkBox verticalText="admin">
-                    <h2>{Cannolilist && Cannolilist.length} </h2>
-                    <p>Na het inloggen kunt u de inkoopprijs van de cannoli(s) opvragen</p>
+                    <h2>{pendingCannoliList && pendingCannoliList.length} prijzen opvragen</h2>
+                    <p>Na het inloggen kunt u de inkoopprijs van de}  cannoli(s) opvragen</p>
                     <p>Klik op de naam van de cannoli om te zien wat de inkoopprijs is.</p>
-                    <ul>{CannoliList && CannoliList}</ul>
+                    <ul>{pendingCannoliList && pendingCannoliList}</ul>
                 </BookmarkBox>
             }
 
@@ -138,5 +145,5 @@ function Profile({headerImageHandler, pageTitleHandler}) {
 }
 
 export default Profile;
-*/
+
 

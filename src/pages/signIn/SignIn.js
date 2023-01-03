@@ -2,9 +2,14 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext";
 import pageImg from "../../../src/assets/img.background/cannoli-background.png";
-import BrownContentBox  from "../../components/pageLayout/boxElements/browncontentbox/BrownContentBox";
+import ContentBox  from "../../components/pageLayout/designElement/box/contentBox/ContentBox";
 import {useForm} from 'react-hook-form';
 import axios from "axios";
+
+
+function Input(props) {
+    return null;
+}
 
 function SignIn({headerImageHandler, pageTitleHandler}) {
     const {login, logout, auth} = useContext(AuthContext);
@@ -34,12 +39,11 @@ function SignIn({headerImageHandler, pageTitleHandler}) {
             console.error('There was an error!', error);
             setError(true);
         }
-        ;
     }
 
     return (
         <>
-            <BrownContentBox>
+            <ContentBox>
                 {!auth ?
                     <form onSubmit={handleSubmit(signIn)}>
 
@@ -78,7 +82,7 @@ function SignIn({headerImageHandler, pageTitleHandler}) {
                     : <button type="button" onClick={logout}>Log uit</button>
                 }
                 {error && "Er ging iets mis, controleer je gegevens en probeer het nog een keer."}
-            </BrownContentBox>
+            </ContentBox>
             <section className="page-content">
                 <p>Heb je nog geen account? <Link to="/registreren" exact>Registreren</Link> je dan eerst.</p>
             </section>

@@ -1,8 +1,6 @@
 import React, {useContext} from "react";
 import {Link} from "react-router-dom";
-import {ScreenWidthContext} from "../../context/screenWidthContext";
 import Nav from "../../components/pageLayout/nav/Nav";
-import NavResp from "../../components/pageLayout/navResp/NavResp";
 import Email from "../../assets/mediaIcon/Email.png";
 import Phone from "../../assets/mediaIcon/Phone.png";
 import Facebook from "../../assets/mediaIcon/Facebook.png";
@@ -23,15 +21,13 @@ class TextContainer extends React.Component {
 TextContainer.propTypes = {children: PropTypes.node};
 
 function Contact() {
-    const { screenWidth } = useContext(ScreenWidthContext);
+
 
     return (
         <section>
             <article className="contact">
 
-                <div>
-                   {screenWidth < 1200 ? <NavResp /> : <Nav />}
-               </div>
+
 
                 <article>
                     <h1 className="header-contact">Contact</h1>
@@ -71,9 +67,6 @@ function Contact() {
             <br/>
             <br/>
 
-    <div>
-        {screenWidth < 950 ? <FooterResp /> : <Footer />}
-    </div>
         </section>
     );
 }

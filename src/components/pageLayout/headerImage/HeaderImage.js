@@ -1,4 +1,6 @@
+/*
 import React from 'react';
+import Header from '../header/Header';
 
  function HeaderImage({headerImage, pageTitle}) {
      return (
@@ -14,3 +16,5 @@ import React from 'react';
  }
 
  export default HeaderImage;
+
+ */

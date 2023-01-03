@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../../assets/img.background/cannoli-background.png';
 import Nav from "../nav/Nav";
 import {useNavigate, Link} from 'react-router-dom';
-import styles from './Header.module.css';
+import './Header.css';
 
 function Header({headerImage, pageTitle}) {
     const history = useNavigate();

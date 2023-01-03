@@ -17,9 +17,9 @@ function FooterResp() {
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to="/webshop">Webshop</Link></li>
                         <li><Link to="/faq's">Faq's</Link></li>
-                        <li><Link to="/home">Allergens</Link></li>
+                        <li><Link to="/allergens">Allergens</Link></li>
                         <li><Link to="/webshop">Contact</Link></li>
-                        <li><Link to="/faq's">Mijn Account</Link></li>
+                        <li>Mijn Account</li>
 
                         {auth ? <li><Link to="/inloggen">Uitloggen</Link></li> :
                             <li><Link to="/inloggen">Inloggen</Link></li>}
