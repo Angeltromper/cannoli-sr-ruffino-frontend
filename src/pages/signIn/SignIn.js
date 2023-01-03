@@ -6,7 +6,6 @@ import ContentBox  from "../../components/pageLayout/designElement/box/contentBo
 import {useForm} from 'react-hook-form';
 import axios from "axios";
 
-
 function Input(props) {
     return null;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../../assets/img.background/cannoli-background.png';
-import Nav from "../nav/Nav";
+import Navigation from "../navigation/Navigation";
 import {useNavigate, Link} from 'react-router-dom';
 import './Header.css';
 
@@ -22,7 +22,7 @@ function Header({headerImage, pageTitle}) {
                     <button type="button" onClick={toLink}><span className="button-text">Inloggen</span></button>
                 </div>
             </header>
-            <Nav/>
+            <Navigation/>
             <div className="header-img-container">
                 <figure>
                     <img src={headerImage} className="header-img"/>

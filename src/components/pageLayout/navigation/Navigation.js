@@ -1,20 +1,31 @@
 import React, {useContext, useState} from 'react';
-import styles from './Navigation.module.css';
-import Hamburger from "./../hamburger/Hamburger.module.css";
-import {useHistory} from "react-router-dom";
 import {NavLink, useLocation} from "react-router-dom";
 import {AuthContext} from "../../../context/AuthContext";
-import LogButton from "../../buttons/logbutton/LogButton";
+import * as PropTypes from "prop-types";
+
+
+function Hamburger() {
+    return null;
+}
+
+Hamburger.propTypes = {isOpen: PropTypes.bool};
+
+function LogButton() {
+    return null;
+}
+
+LogButton.propTypes = {text: PropTypes.string};
 
 function Navigation() {
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
     const {isAuth, logout} = useContext(AuthContext);
-    const history = useHistory();
+
 
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen)
     }
 
+    let Browserhistory;
     return(
         <div className="navigation__container">
                 <ul className={hamburgerOpen ? "navigation__standard" : "navigation-closed navigation__standard"}>
@@ -45,7 +56,7 @@ function Navigation() {
                             :
                             <LogButton
                                 text="login"
-                                onClick={() => history.push ( "/login" )}
+                                onClick={() => Browserhistory.push ( "/login" )}
                             />
                         }
                     </li>
